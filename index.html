@@ -877,7 +877,7 @@
         </div>
     </div>
 
-   <script>
+    <script>
 // Application state
 let currentStep = 1;
 let maxSteps = 7;
@@ -937,9 +937,8 @@ const validationPatterns = {
 };
 
 // REPLACE WITH YOUR DEPLOYED WEB APP URL
-const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzENWZ7B-ZDoWKUG7ExtKyHTwOEk9rTWlC509X1h-OVmUHdBTxaJk8UZ_eqbCtZlYK3/exec';
+const WEBHOOK_URL = 'https://script.google.com/macros/s/YOUR_WEB_APP_ID/exec';
 
-// Initialize form
 document.addEventListener('DOMContentLoaded', function() {
     updateProgressBar();
     setupEventListeners();
@@ -1030,17 +1029,14 @@ function nextStep() {
         if (currentStep < maxSteps) {
             hideSection(currentStep);
             currentStep++;
-            
             while (shouldSkipSection(currentStep) && currentStep <= maxSteps) {
                 currentStep++;
             }
-            
             if (currentStep <= maxSteps) {
                 showSection(currentStep);
                 updateProgressBar();
                 updateStepIndicator();
                 updateButtons();
-                
                 if (currentStep === 4) {
                     generateChildrenForms();
                 } else if (currentStep === 5) {
@@ -1324,186 +1320,199 @@ function generateExperienceForms() {
                             <option value="Blue Belt">Blue Belt</option>
                             <option value="Brown Belt">Brown Belt</option>
                             <option value="Black Belt">Black Belt</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="child${i}Competition">Competition Experience or Recent Injuries</label>
-                            <textarea id="child${i}Competition" name="child${i}Competition" class="form-textarea" rows="3"></textarea>
-                        </div>
+                        </select>
                     </div>
-                `;
-                container.innerHTML += experienceHTML;
-            }
+                    <div class="form-group">
+                        <label class="form-label" for="child${i}Competition">Competition Experience or Recent Injuries</label>
+                        <textarea id="child${i}Competition" name="child${i}Competition" class="form-textarea" rows="3"></textarea>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += experienceHTML;
         }
     }
+}
 
-    function toggleOtherField(selectId, groupId) {
-        const select = document.getElementById(selectId);
-        const group = document.getElementById(groupId);
-        if (select && group) {
-            group.style.display = select.value === 'Other' ? 'block' : 'none';
-        }
+function toggleOtherField(selectId, groupId) {
+    const select = document.getElementById(selectId);
+    const group = document.getElementById(groupId);
+    if (select && group) {
+        group.style.display = select.value === 'Other' ? 'block' : 'none';
     }
+}
 
-    function showSection(step) {
-        document.getElementById(`section${step}`).classList.add('active');
-        if (step === 6) {
-            ['friendName', 'friendChildName', 'friendContact', 'referrer'].forEach(field => {
-                const el = document.getElementById(field);
-                if (el) el.setAttribute('required', '');
-            });
-            document.getElementById('referred')?.setAttribute('required', '');
-        }
+function showSection(step) {
+    document.getElementById(`section${step}`).classList.add('active');
+    if (step === 6) {
+        ['friendName', 'friendChildName', 'friendContact', 'referrer'].forEach(field => {
+            const el = document.getElementById(field);
+            if (el) el.setAttribute('required', '');
+        });
+        document.getElementById('referred')?.setAttribute('required', '');
     }
+}
 
-    function hideSection(step) {
-        document.getElementById(`section${step}`).classList.remove('active');
-        if (step === 6) {
-            ['friendName', 'friendChildName', 'friendContact', 'referrer', 'referred'].forEach(field => {
-                const el = document.getElementById(field);
-                if (el) el.removeAttribute('required');
-            });
-        }
+function hideSection(step) {
+    document.getElementById(`section${step}`).classList.remove('active');
+    if (step === 6) {
+        ['friendName', 'friendChildName', 'friendContact', 'referrer', 'referred'].forEach(field => {
+            const el = document.getElementById(field);
+            if (el) el.removeAttribute('required');
+        });
     }
+}
 
-    function updateProgressBar() {
-        const progress = (currentStep / maxSteps) * 100;
-        document.getElementById('progressFill').style.width = `${progress}%`;
+function updateProgressBar() {
+    const progress = (currentStep / maxSteps) * 100;
+    document.getElementById('progressFill').style.width = `${progress}%`;
+}
+
+function updateStepIndicator() {
+    const stepNames = [
+        'Welcome &amp; Promo Code',
+        'Package Confirmation',
+        'Family &amp; Guardian Details',
+        'Children Information',
+        'Martial Arts Experience',
+        'Referral Information',
+        'Emergency Contact &amp; Final Details'
+    ];
+    document.getElementById('stepIndicator').innerHTML = 
+        `Step ${currentStep} of ${maxSteps}: ${stepNames[currentStep - 1]}`;
+}
+
+function updateButtons() {
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    prevBtn.style.display = currentStep > 1 ? 'inline-flex' : 'none';
+    if (currentStep === maxSteps) {
+        nextBtn.style.display = 'none';
+        submitBtn.style.display = 'inline-flex';
+    } else {
+        nextBtn.style.display = 'inline-flex';
+        submitBtn.style.display = 'none';
     }
+}
 
-    function updateStepIndicator() {
-        const stepNames = [
-            'Welcome &amp; Promo Code',
-            'Package Confirmation',
-            'Family &amp; Guardian Details',
-            'Children Information',
-            'Martial Arts Experience',
-            'Referral Information',
-            'Emergency Contact &amp; Final Details'
-        ];
-        document.getElementById('stepIndicator').innerHTML = 
-            `Step ${currentStep} of ${maxSteps}: ${stepNames[currentStep - 1]}`;
-    }
+async function submitForm(event) {
+    event.preventDefault();
+    if (!validateCurrentStep()) return;
+    document.getElementById('loading').classList.add('show');
+    document.querySelector('.form-card').style.display = 'none';
+    const rawFormData = new FormData(document.getElementById('admissionForm'));
+    const rawData = Object.fromEntries(rawFormData.entries());
+    const childrenCount = selectedPackage ? selectedPackage.childrenCount : 1;
 
-    function updateButtons() {
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const submitBtn = document.getElementById('submitBtn');
-        prevBtn.style.display = currentStep > 1 ? 'inline-flex' : 'none';
-        if (currentStep === maxSteps) {
-            nextBtn.style.display = 'none';
-            submitBtn.style.display = 'inline-flex';
-        } else {
-            nextBtn.style.display = 'inline-flex';
-            submitBtn.style.display = 'none';
-        }
-    }
+    const data = {
+        promoCode: rawData.promoCode || '',
+        packageName: selectedPackage ? selectedPackage.name : '',
+        totalPrice: selectedPackage ? selectedPackage.price : '',
+        primaryGuardianName: rawData.guardianName || '',
+        primaryGuardianRelationship: rawData.guardianOther || rawData.guardianRelationship || '',
+        primaryGuardianContact: rawData.guardianContact || '',
+        primaryGuardianEmail: rawData.guardianEmail || '',
+        primaryGuardianWhatsApp: rawData.guardianWhatsapp || '',
+        secondaryGuardianName: rawData.guardianName2 || '',
+        secondaryGuardianRelationship: rawData.guardianOther2 || rawData.guardianRelationship2 || '',
+        secondaryGuardianContact: rawData.guardianContact2 || '',
+        child1Name: rawData.child1Name || '',
+        child1DOB: rawData.child1Dob || '',
+        child1Gender: rawData.child1Gender || '',
+        child1Siblings: rawData.child1Siblings || '',
+        child1MartialArtsExperience: rawData.child1MartialArts || '',
+        child1MedicalConditions: rawData.child1Medical || '',
+        child1MedicalDetails: rawData.child1MedicalDetails || '',
+        child1CurrentMedications: rawData.child1Medications || '',
+        child1MartialArtsDuration: rawData.child1Duration || '',
+        child1PreviousDojo: rawData.child1Dojo || '',
+        child1MartialArtsStyle: rawData.child1Style || '',
+        child1CurrentBeltRank: rawData.child1Belt || '',
+        child1CompetitionExperience: rawData.child1Competition || '',
+        child2Name: childrenCount >= 2 ? rawData.child2Name || '' : '',
+        child2DOB: childrenCount >= 2 ? rawData.child2Dob || '' : '',
+        child2Gender: childrenCount >= 2 ? rawData.child2Gender || '' : '',
+        child2MartialArtsExperience: childrenCount >= 2 ? rawData.child2MartialArts || '' : '',
+        child2MedicalConditions: childrenCount >= 2 ? rawData.child2Medical || '' : '',
+        child2MedicalDetails: childrenCount >= 2 ? rawData.child2MedicalDetails || '' : '',
+        child2CurrentMedications: childrenCount >= 2 ? rawData.child2Medications || '' : '',
+        child2MartialArtsDuration: childrenCount >= 2 ? rawData.child2Duration || '' : '',
+        child2PreviousDojo: childrenCount >= 2 ? rawData.child2Dojo || '' : '',
+        child2MartialArtsStyle: childrenCount >= 2 ? rawData.child2Style || '' : '',
+        child2CurrentBeltRank: childrenCount >= 2 ? rawData.child2Belt || '' : '',
+        child2CompetitionExperience: childrenCount >= 2 ? rawData.child2Competition || '' : '',
+        child3Name: childrenCount >= 3 ? rawData.child3Name || '' : '',
+        child3DOB: childrenCount >= 3 ? rawData.child3Dob || '' : '',
+        child3Gender: childrenCount >= 3 ? rawData.child3Gender || '' : '',
+        child3MartialArtsExperience: childrenCount >= 3 ? rawData.child3MartialArts || '' : '',
+        child3MedicalConditions: childrenCount >= 3 ? rawData.child3Medical || '' : '',
+        child3MedicalDetails: childrenCount >= 3 ? rawData.child3MedicalDetails || '' : '',
+        child3CurrentMedications: childrenCount >= 3 ? rawData.child3Medications || '' : '',
+        child3MartialArtsDuration: childrenCount >= 3 ? rawData.child3Duration || '' : '',
+        child3PreviousDojo: childrenCount >= 3 ? rawData.child3Dojo || '' : '',
+        child3MartialArtsStyle: childrenCount >= 3 ? rawData.child3Style || '' : '',
+        child3CurrentBeltRank: childrenCount >= 3 ? rawData.child3Belt || '' : '',
+        child3CompetitionExperience: childrenCount >= 3 ? rawData.child3Competition || '' : '',
+        friendName: rawData.friendName || '',
+        friendChildName: rawData.friendChildName || '',
+        friendContact: rawData.friendContact || '',
+        referrerStatus: rawData.referrerStatus || '',
+        emergencyContactName: rawData.emergencyName || '',
+        emergencyContactRelationship: rawData.emergencyOther || rawData.emergencyRelationship || '',
+        emergencyContactPhone: rawData.emergencyPhone || '',
+        specialRequirements: rawData.specialRequirements || '',
+        termsAccepted: (rawData.termsAccept === 'on' && rawData.finalConsent === 'on') ? 'Yes' : 'No'
+    };
 
-    async function submitForm(event) {
-        event.preventDefault();
-        if (!validateCurrentStep()) return;
-        document.getElementById('loading').classList.add('show');
-        document.querySelector('.form-card').style.display = 'none';
-        const rawFormData = new FormData(document.getElementById('admissionForm'));
-        const rawData = Object.fromEntries(rawFormData.entries());
-        const childrenCount = selectedPackage ? selectedPackage.childrenCount : 1;
-
-        const data = {
-            promoCode: rawData.promoCode || '',
-            packageName: selectedPackage ? selectedPackage.name : '',
-            totalPrice: selectedPackage ? selectedPackage.price : '',
-            primaryGuardianName: rawData.guardianName || '',
-            primaryGuardianRelationship: rawData.guardianOther || rawData.guardianRelationship || '',
-            primaryGuardianContact: rawData.guardianContact || '',
-            primaryGuardianEmail: rawData.guardianEmail || '',
-            primaryGuardianWhatsApp: rawData.guardianWhatsapp || '',
-            secondaryGuardianName: rawData.guardianName2 || '',
-            secondaryGuardianRelationship: rawData.guardianOther2 || rawData.guardianRelationship2 || '',
-            secondaryGuardianContact: rawData.guardianContact2 || '',
-            child1Name: rawData.child1Name || '',
-            child1DOB: rawData.child1Dob || '',
-            child1Gender: rawData.child1Gender || '',
-            child1Siblings: rawData.child1Siblings || '',
-            child1MartialArtsExperience: rawData.child1MartialArts || '',
-            child1MedicalConditions: rawData.child1Medical || '',
-            child1MedicalDetails: rawData.child1MedicalDetails || '',
-            child1CurrentMedications: rawData.child1Medications || '',
-            child1MartialArtsDuration: rawData.child1Duration || '',
-            child1PreviousDojo: rawData.child1Dojo || '',
-            child1MartialArtsStyle: rawData.child1Style || '',
-            child1CurrentBeltRank: rawData.child1Belt || '',
-            child1CompetitionExperience: rawData.child1Competition || '',
-            child2Name: childrenCount >= 2 ? rawData.child2Name || '' : '',
-            child2DOB: childrenCount >= 2 ? rawData.child2Dob || '' : '',
-            child2Gender: childrenCount >= 2 ? rawData.child2Gender || '' : '',
-            child2MartialArtsExperience: childrenCount >= 2 ? rawData.child2MartialArts || '' : '',
-            child2MedicalConditions: childrenCount >= 2 ? rawData.child2Medical || '' : '',
-            child2MedicalDetails: childrenCount >= 2 ? rawData.child2MedicalDetails || '' : '',
-            child2CurrentMedications: childrenCount >= 2 ? rawData.child2Medications || '' : '',
-            child2MartialArtsDuration: childrenCount >= 2 ? rawData.child2Duration || '' : '',
-            child2PreviousDojo: childrenCount >= 2 ? rawData.child2Dojo || '' : '',
-            child2MartialArtsStyle: childrenCount >= 2 ? rawData.child2Style || '' : '',
-            child2CurrentBeltRank: childrenCount >= 2 ? rawData.child2Belt || '' : '',
-            child2CompetitionExperience: childrenCount >= 2 ? rawData.child2Competition || '' : '',
-            child3Name: childrenCount >= 3 ? rawData.child3Name || '' : '',
-            child3DOB: childrenCount >= 3 ? rawData.child3Dob || '' : '',
-            child3Gender: childrenCount >= 3 ? rawData.child3Gender || '' : '',
-            child3MartialArtsExperience: childrenCount >= 3 ? rawData.child3MartialArts || '' : '',
-            child3MedicalConditions: childrenCount >= 3 ? rawData.child3Medical || '' : '',
-            child3MedicalDetails: childrenCount >= 3 ? rawData.child3MedicalDetails || '' : '',
-            child3CurrentMedications: childrenCount >= 3 ? rawData.child3Medications || '' : '',
-            child3MartialArtsDuration: childrenCount >= 3 ? rawData.child3Duration || '' : '',
-            child3PreviousDojo: childrenCount >= 3 ? rawData.child3Dojo || '' : '',
-            child3MartialArtsStyle: childrenCount >= 3 ? rawData.child3Style || '' : '',
-            child3CurrentBeltRank: childrenCount >= 3 ? rawData.child3Belt || '' : '',
-            child3CompetitionExperience: childrenCount >= 3 ? rawData.child3Competition || '' : '',
-            friendName: rawData.friendName || '',
-            friendChildName: rawData.friendChildName || '',
-            friendContact: rawData.friendContact || '',
-            referrerStatus: rawData.referrerStatus || '',
-            emergencyContactName: rawData.emergencyName || '',
-            emergencyContactRelationship: rawData.emergencyOther || rawData.emergencyRelationship || '',
-            emergencyContactPhone: rawData.emergencyPhone || '',
-            specialRequirements: rawData.specialRequirements || '',
-            termsAccepted: (rawData.termsAccept === 'on' && rawData.finalConsent === 'on') ? 'Yes' : 'No'
-        };
-
-        try {
-            const response = await fetch(WEBHOOK_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                body: JSON.stringify(data)
-            });
-            if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-            const resultText = await response.text();
-            let parsedResult = { status: 'success', message: 'Submitted!', upiLink: '', applicantId: '' };
-            try { parsedResult = JSON.parse(resultText); } catch {}
-            document.getElementById('loading').classList.remove('show');
-            if (parsedResult.status === 'success') {
-                document.getElementById('successMessage').innerHTML = `
-                    <h3>Application Submitted Successfully!</h3>
+    try {
+        const response = await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(data)
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        const resultText = await response.text();
+        let parsedResult = { status: 'success', message: 'Submitted!', upiLink: '', applicantId: '' };
+        try { parsedResult = JSON.parse(resultText); } catch {}
+        document.getElementById('loading').classList.remove('show');
+        if (parsedResult.status === 'success') {
+            document.getElementById('successMessage').innerHTML = `
+                <div class="success-container">
+                    <h3>🥋 Application Submitted Successfully!</h3>
                     <p>Application ID: ${parsedResult.applicantId}</p>
                     <p>${parsedResult.message}</p>
-                    <a href="${parsedResult.upiLink}" class="btn btn-primary" target="_blank">Pay Now</a>
-                `;
-                document.getElementById('successMessage').classList.add('show');
-                console.log('Success! Data sent:', data);
-            } else {
-                throw new Error(parsedResult.message || 'Unknown error');
-            }
-        } catch (error) {
-            console.error('Submission Error:', error);
-            document.getElementById('loading').classList.remove('show');
-            alert(`Submission failed: ${error.message}\nCheck console (F12) for details. Try again or contact support.`);
-            document.querySelector('.form-card').style.display = 'block';
+                    <p>Click below to make the payment via UPI (Google Pay, PhonePe, Paytm, etc.).</p>
+                    <a href="${parsedResult.upiLink}" class="btn btn-primary pay-now-btn" target="_blank">Pay Now</a>
+                    <p>A payment link has also been sent to your email (${data.primaryGuardianEmail}).</p>
+                    <p>Contact us at +91 90199 71726 for any questions.</p>
+                </div>
+            `;
+            document.getElementById('successMessage').classList.add('show');
+            console.log('Success! Data sent:', data);
+        } else {
+            throw new Error(parsedResult.message || 'Unknown error');
         }
+    } catch (error) {
+        console.error('Submission Error:', error);
+        document.getElementById('loading').classList.remove('show');
+        document.getElementById('successMessage').innerHTML = `
+            <div class="error-container">
+                <h3>Submission Failed</h3>
+                <p>${error.message}</p>
+                <p>Please try again or contact support at +91 90199 71726.</p>
+            </div>
+        `;
+        document.getElementById('successMessage').classList.add('show');
     }
+}
 
-    updateButtons();
+updateButtons();
 </script>
+    
 </body>
 
 </html>
+
 
 
 
