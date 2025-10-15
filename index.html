@@ -595,6 +595,59 @@
             cursor: pointer;
         }
 
+        .success-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #e6f4ea;
+    border: 2px solid #4caf50;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+.success-container h3 {
+    color: #4caf50;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+.success-container p {
+    color: #333;
+    font-size: 16px;
+    margin: 10px 0;
+}
+.pay-now-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 15px 0;
+    transition: background-color 0.3s;
+}
+.pay-now-btn:hover {
+    background-color: #0056b3;
+}
+.error-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffe6e6;
+    border: 2px solid #dc3545;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+.error-container h3 {
+    color: #dc3545;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+.error-container p {
+    color: #333;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
         @media (max-width: 768px) {
             .app-container {
                 padding: var(--space-16);
@@ -937,7 +990,7 @@ const validationPatterns = {
 };
 
 // REPLACE WITH YOUR DEPLOYED WEB APP URL
-const WEBHOOK_URL = 'https://script.google.com/macros/s/YOUR_WEB_APP_ID/exec';
+const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxgAcyq4GoLQt1VH6D0E6LfR0fruGZ5yMBASxtyLylPxIxh61Q2bWx7zXGsuWoMiOvr/exec';
 
 document.addEventListener('DOMContentLoaded', function() {
     updateProgressBar();
@@ -1512,6 +1565,7 @@ updateButtons();
 </body>
 
 </html>
+
 
 
 
