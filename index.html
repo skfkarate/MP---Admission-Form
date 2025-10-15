@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKF Karate Admission Form - MP Sports Club</title>
+    <style>
+        :root {
+            /* Black Martial Arts Theme Colors */
+            --karate-bg-primary: #0a0a0a;
+            --karate-bg-secondary: #1a1a1a;
+            --karate-bg-surface: #2a2a2a;
+            --karate-bg-elevated: #333333;
+            
+            /* Metallic Colors */
+            --metallic-silver: #c0c0c0;
+            --metallic-bright-silver: #e8e8e8;
+            --metallic-dark-silver: #909090;
+            --metallic-gold: #d4af37;
+            --metallic-chrome: #f0f0f0;
+            
+            /* Text Colors */
+            --text-primary: #ffffff;
+            --text-secondary: #c0c0c0;
+            --text-muted: #909090;
+            --text-accent: #d4af37;
+            
+            /* Status Colors */
+            --status-success: #22c55e;
+            --status-error: #ef4444;
+            --status-warning: #f59e0b;
+            --status-info: #3b82f6;
+            
+            /* Effects */
+            --shadow-premium: 0 8px 32px rgba(0, 0, 0, 0.5);
+            --shadow-elevated: 0 4px 16px rgba(0, 0, 0, 0.3);
+            --shadow-glow: 0 0 20px rgba(192, 192, 192, 0.3);
+            --shadow-gold-glow: 0 0 15px rgba(212, 175, 55, 0.4);
+            
+            /* Gradients */
+            --gradient-metallic: linear-gradient(135deg, #e8e8e8 0%, #c0c0c0 25%, #ffffff 50%, #c0c0c0 75%, #e8e8e8 100%);
+            --gradient-dark: linear-gradient(135deg, #0a0a0a 0%, #2a2a2a 100%);
+            --gradient-surface: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+            --gradient-button: linear-gradient(135deg, #c0c0c0 0%, #909090 100%);
+            
+            /* RGB versions for opacity control */
+            --metallic-silver-rgb: 192, 192, 192;
+            --karate-bg-primary-rgb: 10, 10, 10;
+            --text-primary-rgb: 255, 255, 255;
+            
+            /* Semantic mappings */
+            --color-background: var(--karate-bg-primary);
+            --color-surface: var(--karate-bg-secondary);
+            --color-text: var(--text-primary);
+            --color-text-secondary: var(--text-secondary);
+            --color-primary: var(--metallic-silver);
+            --color-primary-hover: var(--metallic-bright-silver);
+            --color-primary-active: var(--metallic-dark-silver);
+            --color-secondary: rgba(var(--metallic-silver-rgb), 0.15);
+            --color-secondary-hover: rgba(var(--metallic-silver-rgb), 0.25);
+            --color-secondary-active: rgba(var(--metallic-silver-rgb), 0.35);
+            --color-border: rgba(var(--metallic-silver-rgb), 0.3);
+            --color-btn-primary-text: var(--karate-bg-primary);
+            --color-card-border: rgba(var(--metallic-silver-rgb), 0.2);
+            --color-card-border-inner: rgba(var(--metallic-silver-rgb), 0.15);
+            --color-error: var(--status-error);
+            --color-success: var(--status-success);
+            --color-warning: var(--status-warning);
+            --color-info: var(--status-info);
+            --color-focus-ring: rgba(var(--metallic-silver-rgb), 0.4);
+            /* Fixed missing vars */
+            --color-gray-200: #333333;
+            --color-bg-3: rgba(255, 255, 255, 0.05);
+            --karate-red: #ef4444;
+
+            /* Typography */
+            --font-family-base: "Inter", "Segoe UI", Roboto, sans-serif;
+            --font-family-heading: "Inter", "Segoe UI", Roboto, sans-serif;
+            --font-size-xs: 11px;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-md: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --letter-spacing-tight: -0.01em;
+
+            /* Spacing */
+            --space-0: 0;
+            --space-1: 1px;
+            --space-2: 2px;
+            --space-4: 4px;
+            --space-6: 6px;
+            --space-8: 8px;
+            --space-10: 10px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+
+            /* Shadows */
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+
+            /* Animation */
+            --duration-fast: 150ms;
+            --duration-normal: 250ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background: var(--gradient-dark);
+            min-height: 100vh;
+            color: var(--color-text);
+            line-height: var(--line-height-normal);
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(192, 192, 192, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .app-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--space-20);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: var(--space-32);
+            background: var(--gradient-surface);
+            padding: var(--space-24);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-premium);
+            border: 1px solid var(--color-border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            animation: headerShine 3s infinite;
+        }
+        
+        @keyframes headerShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .logo {
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 0.9;
+        }
+        
+        .logo-skf,
+        .logo-karate {
+            font-weight: 800;
+            background: var(--gradient-metallic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: var(--shadow-glow);
+            position: relative;
+            display: inline-block;
+            letter-spacing: 0.03em;
+            animation: logoGlow 2s ease-in-out infinite alternate;
+        }
+        
+        .logo-skf {
+            font-size: clamp(4rem, 14vw, 8rem);
+            margin-bottom: 0.2rem;
+            line-height: 0.9;
+        }
+        
+        .logo-karate {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            line-height: 0.9;
+        }
+        
+        @keyframes logoGlow {
+            0% {
+                filter: drop-shadow(0 0 5px rgba(192, 192, 192, 0.5));
+                transform: scale(1);
+            }
+            100% {
+                filter: drop-shadow(0 0 15px rgba(192, 192, 192, 0.8));
+                transform: scale(1.02);
+            }
+        }
+        
+        .logo-skf::after,
+        .logo-karate::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+            animation: logoShine 3s infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes logoShine {
+            0% { transform: translateX(-100%) skewX(-15deg); }
+            100% { transform: translateX(200%) skewX(-15deg); }
+        }
+
+        .tagline {
+            font-size: var(--font-size-lg);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-16);
+            font-weight: 500;
+        }
+
+        .urgency-banner {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--metallic-gold);
+            border-radius: var(--radius-base);
+            padding: var(--space-12);
+            font-size: var(--font-size-sm);
+            color: var(--metallic-gold);
+            font-weight: var(--font-weight-medium);
+            box-shadow: var(--shadow-gold-glow);
+        }
+
+        .form-card {
+            background: var(--gradient-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-premium);
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: var(--color-gray-200);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-metallic);
+            transition: width var(--duration-normal) var(--ease-standard);
+            width: 0%;
+            box-shadow: 0 0 10px rgba(192, 192, 192, 0.5);
+        }
+
+        .step-indicator {
+            padding: var(--space-16) var(--space-24);
+            background: rgba(var(--metallic-silver-rgb), 0.05);
+            border-bottom: 1px solid var(--color-border);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--text-secondary);
+        }
+
+        .form-section {
+            padding: var(--space-24);
+            display: none;
+            background: var(--karate-bg-secondary);
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text);
+            margin-bottom: var(--space-8);
+        }
+
+        .section-subtitle {
+            font-size: var(--font-size-base);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-24);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-20);
+        }
+
+        .form-label {
+            display: block;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text);
+            margin-bottom: var(--space-6);
+        }
+
+        .form-label.required::after {
+            content: " *";
+            color: var(--color-error);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: var(--space-12);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-family: inherit;
+            transition: all var(--duration-fast) var(--ease-standard);
+            background: var(--karate-bg-surface);
+            color: var(--text-primary);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--metallic-silver);
+            box-shadow: var(--shadow-glow);
+            background: var(--karate-bg-elevated);
+        }
+
+        .form-input.error,
+        .form-select.error,
+        .form-textarea.error {
+            border-color: var(--color-error);
+        }
+
+        .error-message {
+            font-size: var(--font-size-xs);
+            color: var(--color-error);
+            margin-top: var(--space-4);
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .promo-code-section {
+            background: rgba(var(--metallic-silver-rgb), 0.05);
+            border: 1px solid var(--metallic-silver);
+            border-radius: var(--radius-base);
+            padding: var(--space-20);
+            margin-bottom: var(--space-20);
+            box-shadow: var(--shadow-elevated);
+            position: relative;
+        }
+        
+
+        .package-confirmation {
+            background: var(--color-bg-3);
+            border: 1px solid var(--color-success);
+            border-radius: var(--radius-base);
+            padding: var(--space-16);
+            margin-bottom: var(--space-20);
+        }
+
+        .package-title {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-success);
+            margin-bottom: var(--space-12);
+        }
+
+        .package-details {
+            display: grid;
+            gap: var(--space-8);
+            font-size: var(--font-size-sm);
+        }
+
+        .package-detail {
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+        }
+
+        .package-detail .icon {
+            font-size: var(--font-size-base);
+        }
+
+        .price-highlight {
+            font-weight: var(--font-weight-bold);
+            color: var(--karate-red);
+        }
+
+        .savings-highlight {
+            font-weight: var(--font-weight-bold);
+            color: var(--color-success);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-16);
+        }
+
+        @media (max-width: 640px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-12);
+            margin-top: var(--space-32);
+            padding-top: var(--space-20);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .btn {
+            width: 100%;
+            max-width: 400px;
+            min-height: 50px;
+            margin: 1rem auto;
+            padding: 14px 20px;
+            border: none;
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: all var(--duration-fast) var(--ease-standard);
+            display: block;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-primary {
+            background: var(--gradient-button);
+            color: var(--color-btn-primary-text);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-elevated);
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: var(--gradient-metallic);
+            box-shadow: var(--shadow-premium);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--color-secondary);
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: var(--color-secondary-hover);
+            box-shadow: var(--shadow-elevated);
+            transform: translateY(-1px);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-8);
+            margin-top: var(--space-16);
+        }
+
+        .checkbox-input {
+            margin: 0;
+            width: auto;
+        }
+
+        .checkbox-label {
+            font-size: var(--font-size-sm);
+            line-height: 1.4;
+            cursor: pointer;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: var(--space-20);
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .success-message {
+            background: var(--color-bg-3);
+            border: 1px solid var(--color-success);
+            border-radius: var(--radius-base);
+            padding: var(--space-16);
+            color: var(--color-success);
+            text-align: center;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .child-section {
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            padding: var(--space-16);
+            margin-bottom: var(--space-16);
+            background: rgba(var(--metallic-silver-rgb), 0.03);
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .child-section-title {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text);
+            margin-bottom: var(--space-16);
+            padding-bottom: var(--space-8);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: var(--space-16);
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: var(--space-6);
+        }
+
+        .radio-input {
+            margin: 0;
+            width: auto;
+        }
+
+        .radio-label {
+            font-size: var(--font-size-sm);
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                padding: var(--space-16);
+            }
+
+            .form-header {
+                padding: var(--space-16);
+            }
+
+            .form-section {
+                padding: var(--space-16);
+            }
+
+            .btn {
+                max-width: 100%;
+                margin: 0.5rem auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="form-header">
+            <div class="logo">
+                <span class="logo-skf">SKF</span>
+                <span class="logo-karate">KARATE</span>
+            </div>
+            <div class="tagline">with MP Sports Club</div>
+            <div class="urgency-banner">
+                ⏰ Limited seats available – priority for demonstration attendees.
+            </div>
+        </div>
+
+        <div class="form-card">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="step-indicator" id="stepIndicator">
+                Step 1 of 7: Welcome &amp; Promo Code
+            </div>
+
+            <form id="admissionForm">
+                <!-- Section 1: Welcome & Promo Code -->
+                <div class="form-section active" id="section1">
+                    <h2 class="section-title">Enter Your Promo Code</h2>
+                    <p class="section-subtitle">Please enter your promo code to see your exclusive package details and pricing.</p>
+
+                    
+                    <div class="promo-code-section">
+                        <div class="form-group">
+                            <label class="form-label required" for="promoCode">Promo Code</label>
+                            <input type="text" id="promoCode" name="promoCode" class="form-input" placeholder="Enter promo code" required>
+                            <div class="error-message" id="promoCodeError">Please enter a valid promo code</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Package Confirmation -->
+                <div class="form-section" id="section2">
+    <h2 class="section-title">Package Confirmation</h2>
+    <p class="section-subtitle">Confirm your selected package and review the exclusive benefits.</p>
+    
+    <div class="package-confirmation" id="packageDetails">
+        <!-- Package details will be populated dynamically -->
+    </div>
+
+    <div class="checkbox-group">
+        <input type="checkbox" id="termsAccept" name="termsAccept" class="checkbox-input" required>
+        <label for="termsAccept" class="checkbox-label">I accept the terms and conditions and confirm my package selection.</label>
+        <div class="error-message" id="termsAcceptError"></div> <!-- Ensure this is present -->
+    </div>
+</div>
+
+                <!-- Section 3: Family & Guardian Details -->
+                <div class="form-section" id="section3">
+                    <h2 class="section-title">Family &amp; Guardian Details</h2>
+                    <p class="section-subtitle">Behind every strong karateka is a supportive family</p>
+                    
+                    <div class="child-section">
+                        <h3 class="child-section-title">Primary Guardian</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label required" for="guardianName">Full Name</label>
+                                <input type="text" id="guardianName" name="guardianName" class="form-input" required>
+                                <div class="error-message" id="guardianNameError">Full name is required</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label required" for="guardianRelationship">Relationship</label>
+                                <select id="guardianRelationship" name="guardianRelationship" class="form-select" required>
+                                    <option value="">Select relationship</option>
+                                    <option value="Father">Father</option>
+                                    <option value="Mother">Mother</option>
+                                    <option value="Guardian">Guardian</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <div class="error-message" id="guardianRelationshipError">Please select a relationship</div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="guardianOtherGroup" style="display: none;">
+                            <label class="form-label" for="guardianOther">Specify Relationship</label>
+                            <input type="text" id="guardianOther" name="guardianOther" class="form-input">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label required" for="guardianContact">Contact Number</label>
+                                <input type="tel" id="guardianContact" name="guardianContact" class="form-input" placeholder="10-digit mobile number" required>
+                                <div class="error-message" id="guardianContactError">Please enter a valid 10-digit mobile number</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label required" for="guardianWhatsapp">WhatsApp Number</label>
+                                <input type="tel" id="guardianWhatsapp" name="guardianWhatsapp" class="form-input" placeholder="For class/group updates" required>
+                                <div class="error-message" id="guardianWhatsappError">Please enter a valid WhatsApp number</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="guardianEmail">Email Address</label>
+                            <input type="email" id="guardianEmail" name="guardianEmail" class="form-input" required>
+                            <div class="error-message" id="guardianEmailError">Please enter a valid email address</div>
+                        </div>
+                    </div>
+
+                    <div class="child-section">
+                        <h3 class="child-section-title">Secondary Guardian (Optional)</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="guardianName2">Full Name</label>
+                                <input type="text" id="guardianName2" name="guardianName2" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="guardianRelationship2">Relationship</label>
+                                <select id="guardianRelationship2" name="guardianRelationship2" class="form-select">
+                                    <option value="">Select relationship</option>
+                                    <option value="Father">Father</option>
+                                    <option value="Mother">Mother</option>
+                                    <option value="Guardian">Guardian</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group" id="guardianOther2Group" style="display: none;">
+                            <label class="form-label" for="guardianOther2">Specify Relationship</label>
+                            <input type="text" id="guardianOther2" name="guardianOther2" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="guardianContact2">Contact Number</label>
+                            <input type="tel" id="guardianContact2" name="guardianContact2" class="form-input" placeholder="10-digit mobile number">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Children Information -->
+                <div class="form-section" id="section4">
+                    <h2 class="section-title">Children Information</h2>
+                    <p class="section-subtitle">Tell us about your child(ren)</p>
+                    
+                    <div id="childrenContainer">
+                        <!-- Children forms will be populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Section 5: Martial Arts Experience -->
+                <div class="form-section" id="section5">
+                    <h2 class="section-title">Martial Arts Experience</h2>
+                    <p class="section-subtitle">Please provide details about any previous martial arts training</p>
+                    
+                    <div id="experienceContainer">
+                        <!-- Experience forms will be populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Section 6: Referral Information -->
+                <div class="form-section" id="section6">
+                    <h2 class="section-title">Referral Information</h2>
+                    <p class="section-subtitle">Great for friends joining together!</p>
+                    
+                    <div class="child-section">
+                        <h3 class="child-section-title">Friend's Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label required" for="friendName">Friend's Full Name</label>
+                                <input type="text" id="friendName" name="friendName" class="form-input" >
+                                <div class="error-message" id="friendNameError">Friend's name is required</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label required" for="friendChildName">Friend's Child Name</label>
+                                <input type="text" id="friendChildName" name="friendChildName" class="form-input" >
+                                <div class="error-message" id="friendChildNameError">Friend's child name is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="friendContact">Friend's Contact / WhatsApp Number</label>
+                            <input type="tel" id="friendContact" name="friendContact" class="form-input" placeholder="10-digit mobile number" >
+                            <div class="error-message" id="friendContactError">Please enter a valid contact number</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="referrerStatus">Are you the referrer or referred friend?</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="referrer" name="referrerStatus" value="referrer" class="radio-input" >
+                                    <label for="referrer" class="radio-label">I am referring my friend</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="referred" name="referrerStatus" value="referred" class="radio-input" >
+                                    <label for="referred" class="radio-label">I was referred by my friend</label>
+                                </div>
+                            </div>
+                            <div class="error-message" id="referrerStatusError">Please select your referrer status</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 7: Emergency Contact & Final Details -->
+<div class="form-section" id="section7">
+    <h2 class="section-title">Emergency Contact &amp; Final Details</h2>
+    <p class="section-subtitle">Almost done! Please provide emergency contact information</p>
+    
+    <div class="child-section">
+        <h3 class="child-section-title">Emergency Contact</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label required" for="emergencyName">Full Name</label>
+                <input type="text" id="emergencyName" name="emergencyName" class="form-input" required>
+                <div class="error-message" id="emergencyNameError">Emergency contact name is required</div>
+            </div>
+            <div class="form-group">
+                <label class="form-label required" for="emergencyRelationship">Relationship</label>
+                <select id="emergencyRelationship" name="emergencyRelationship" class="form-select" required>
+                    <option value="">Select relationship</option>
+                    <option value="Father">Father</option>
+                    <option value="Mother">Mother</option>
+                    <option value="Guardian">Guardian</option>
+                    <option value="Grandparent">Grandparent</option>
+                    <option value="Uncle/Aunt">Uncle/Aunt</option>
+                    <option value="Family Friend">Family Friend</option>
+                    <option value="Other">Other</option>
+                </select>
+                <div class="error-message" id="emergencyRelationshipError">Please select a relationship</div>
+            </div>
+        </div>
+        <div class="form-group" id="emergencyOtherGroup" style="display: none;">
+            <label class="form-label" for="emergencyOther">Specify Relationship</label>
+            <input type="text" id="emergencyOther" name="emergencyOther" class="form-input">
+            <div class="error-message" id="emergencyOtherError">Please specify the relationship</div>
+        </div>
+        <div class="form-group">
+            <label class="form-label required" for="emergencyPhone">Phone Number</label>
+            <input type="tel" id="emergencyPhone" name="emergencyPhone" class="form-input" placeholder="10-digit mobile number" required>
+            <div class="error-message" id="emergencyPhoneError">Please enter a valid phone number</div>
+        </div>
+    </div>
+
+    <!-- Optional: Add Special Requirements field if needed -->
+    <div class="form-group">
+        <label class="form-label" for="specialRequirements">Special Requirements</label>
+        <textarea id="specialRequirements" name="specialRequirements" class="form-textarea" rows="3"></textarea>
+    </div>
+
+    <div class="checkbox-group">
+    <input type="checkbox" id="finalConsent" name="finalConsent" class="checkbox-input" required>
+    <label for="finalConsent" class="checkbox-label">I consent to my child's participation in the SKF Karate program and acknowledge all provided information is accurate.</label>
+    <div class="error-message" id="finalConsentError"></div>
+</div>
+</div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="prevBtn" onclick="previousStep()" style="display: none;">Previous</button>
+                    <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextStep()">Next</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">Submit Application</button>
+                </div>
+            </form>
+
+            <div class="loading" id="loading">
+                <p>Processing your application...</p>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                <h3>Application Submitted Successfully!</h3>
+                <p>Thank you for joining SKF Karate. We will contact you soon with next steps.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Application state
+    let currentStep = 1;
+    let maxSteps = 7;
+    let selectedPackage = null;
+    let formData = {};
+
+    // Package configurations
+    const packages = {
+        'SKFEARLYBIRD': {
+            name: 'Early Bird Program',
+            price: 4000,
+            originalPrice: 6500,
+            savings: 2500,
+            registrationFee: 1500,
+            monthlyTraining: 2500,
+            freeWorkshop: true,
+            childrenCount: 1,
+            icon: '⭐'
+        },
+        'SKFDUO': {
+            name: 'Family Duo Program',
+            price: 7000,
+            originalPrice: 13000,
+            savings: 6000,
+            pricePerChild: 3500,
+            childrenCount: 2,
+            familyDiscount: 1000,
+            icon: '👥'
+        },
+        'SKFTRIO': {
+            name: 'Family Trio Program',
+            price: 9999,
+            originalPrice: 19500,
+            savings: 9501,
+            pricePerChild: 3333,
+            childrenCount: 3,
+            familyDiscount: 2001,
+            icon: '👪'
+        },
+        'SKFREFERRAL': {
+            name: 'Referral Program',
+            price: 3800,
+            originalPrice: 4000,
+            savings: 200,
+            referrerCredit: 500,
+            totalBenefit: 700,
+            childrenCount: 1,
+            icon: '🤝'
+        }
+    };
+
+    // Validation patterns
+    const validationPatterns = {
+        phone: /^[6-9]\d{9}$/,
+        email: /^[^@]+@[^@]+\.[^@]+$/,
+        promoCode: /^SKF[A-Z]+$/
+    };
+
+    // **REPLACE WITH YOUR DEPLOYED WEB APP URL**
+    const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxmxm-2z-9LfO8avrJ5Bwx9FZwKpKEY-m41mudFPHC7UmhL_4mDlDd74QddagkG5mB6/exec';
+
+    // Initialize form
+    document.addEventListener('DOMContentLoaded', function() {
+        updateProgressBar();
+        setupEventListeners();
+    });
+
+    function setupEventListeners() {
+        document.getElementById('promoCode').addEventListener('input', validatePromoCode);
+        document.getElementById('guardianRelationship').addEventListener('change', function() {
+            toggleOtherField('guardianRelationship', 'guardianOtherGroup');
+        });
+        document.getElementById('guardianRelationship2').addEventListener('change', function() {
+            toggleOtherField('guardianRelationship2', 'guardianOther2Group');
+        });
+        document.getElementById('emergencyRelationship').addEventListener('change', function() {
+            toggleOtherField('emergencyRelationship', 'emergencyOtherGroup');
+        });
+        document.getElementById('admissionForm').addEventListener('submit', submitForm);
+    }
+
+    function validatePromoCode() {
+        const promoCode = document.getElementById('promoCode').value.toUpperCase();
+        const promoInput = document.getElementById('promoCode');
+        const errorElement = document.getElementById('promoCodeError');
+
+        if (promoCode && validationPatterns.promoCode.test(promoCode)) {
+            if (packages[promoCode]) {
+                selectedPackage = packages[promoCode];
+                promoInput.classList.remove('error');
+                errorElement.classList.remove('show');
+                updatePackageDetails(promoCode);
+                return true;
+            } else {
+                showError(promoInput, errorElement, 'Invalid promo code');
+                return false;
+            }
+        } else if (promoCode) {
+            showError(promoInput, errorElement, 'Promo code must start with SKF');
+            return false;
+        }
+        return false;
+    }
+
+    function updatePackageDetails(promoCode) {
+        const pkg = packages[promoCode];
+        const detailsContainer = document.getElementById('packageDetails');
+        let detailsHTML = `
+            <div class="package-title">${pkg.icon} ${pkg.name.toUpperCase()} SELECTED</div>
+            <div class="package-details">
+        `;
+        if (promoCode === 'SKFEARLYBIRD') {
+            detailsHTML += `
+                <div class="package-detail"><span class="icon">🎯</span> Registration Fee: ₹2,500 → <span class="price-highlight">₹${pkg.registrationFee}</span></div>
+                <div class="package-detail"><span class="icon">📅</span> Monthly Training: <span class="price-highlight">₹${pkg.monthlyTraining}</span></div>
+                <div class="package-detail"><span class="icon">🛡️</span> Self-Defence Workshop: <span class="savings-highlight">FREE (₹1,500 value)</span></div>
+                <div class="package-detail"><span class="icon">💵</span> Total Investment: <span class="price-highlight">₹${pkg.price}</span></div>
+                <div class="package-detail"><span class="icon">💸</span> You Save <span class="savings-highlight">₹${pkg.savings}!</span></div>
+            `;
+        } else if (promoCode === 'SKFDUO') {
+            detailsHTML += `
+                <div class="package-detail"><span class="icon">🧮</span> 2 × Early Bird Programs = ₹8,000</div>
+                <div class="package-detail"><span class="icon">🎁</span> Family Discount = <span class="savings-highlight">-₹${pkg.familyDiscount}</span></div>
+                <div class="package-detail"><span class="icon">💵</span> Final Total: <span class="price-highlight">₹${pkg.price} (₹${pkg.pricePerChild} per child)</span></div>
+                <div class="package-detail"><span class="icon">💸</span> Total Savings: <span class="savings-highlight">₹${pkg.savings} overall!</span></div>
+            `;
+        } else if (promoCode === 'SKFTRIO') {
+            detailsHTML += `
+                <div class="package-detail"><span class="icon">🧮</span> 3 × Early Bird Programs = ₹12,000</div>
+                <div class="package-detail"><span class="icon">🎁</span> Family Discount = <span class="savings-highlight">-₹${pkg.familyDiscount}</span></div>
+                <div class="package-detail"><span class="icon">💵</span> Final Total: <span class="price-highlight">₹${pkg.price} (₹${pkg.pricePerChild} per child)</span></div>
+                <div class="package-detail"><span class="icon">💸</span> Total Savings: <span class="savings-highlight">₹${pkg.savings} overall!</span></div>
+            `;
+        } else if (promoCode === 'SKFREFERRAL') {
+            detailsHTML += `
+                <div class="package-detail"><span class="icon">🎯</span> Both you and your referred friend enjoy benefits:</div>
+                <div class="package-detail"><span class="icon">💵</span> ₹4,000 each → <span class="price-highlight">₹${pkg.price} after 5% discount</span></div>
+                <div class="package-detail"><span class="icon">🎁</span> Referrer Credit = <span class="savings-highlight">₹${pkg.referrerCredit}</span></div>
+                <div class="package-detail"><span class="icon">💸</span> Total Benefit = <span class="savings-highlight">₹${pkg.totalBenefit}!</span></div>
+            `;
+        }
+        detailsHTML += '</div>';
+        detailsContainer.innerHTML = detailsHTML;
+    }
+
+    function nextStep() {
+    console.log('Attempting to move to next step from Step', currentStep);
+    if (validateCurrentStep()) {
+        console.log('Validation passed for Step', currentStep);
+        if (currentStep < maxSteps) {
+            hideSection(currentStep);
+            currentStep++;
+            
+            // Skip sections based on package type and responses
+            while (shouldSkipSection(currentStep) && currentStep <= maxSteps) {
+                currentStep++;
+            }
+            
+            if (currentStep <= maxSteps) {
+                showSection(currentStep);
+                updateProgressBar();
+                updateStepIndicator();
+                updateButtons();
+                
+                // Generate dynamic content for current step
+                if (currentStep === 4) {
+                    generateChildrenForms();
+                } else if (currentStep === 5) {
+                    generateExperienceForms();
+                }
+                console.log('Moved to Step', currentStep);
+            }
+        }
+    } else {
+        console.log('Validation failed for Step', currentStep);
+    }
+}
+
+    function previousStep() {
+        if (currentStep > 1) {
+            hideSection(currentStep);
+            currentStep--;
+            while (shouldSkipSection(currentStep) && currentStep >= 1) {
+                currentStep--;
+            }
+            if (currentStep >= 1) {
+                showSection(currentStep);
+                updateProgressBar();
+                updateStepIndicator();
+                updateButtons();
+            }
+        }
+    }
+
+    function shouldSkipSection(step) {
+        if (step === 5) {
+            const childrenCount = selectedPackage ? selectedPackage.childrenCount : 1;
+            for (let i = 1; i <= childrenCount; i++) {
+                const hasExperience = document.querySelector(`input[name="child${i}MartialArts"]:checked`);
+                if (hasExperience && hasExperience.value === 'yes') return false;
+            }
+            return true;
+        }
+        if (step === 6) return !selectedPackage || selectedPackage.name !== 'Referral Program';
+        return false;
+    }
+
+    function validateCurrentStep() {
+    let isValid = true;
+    const currentSection = document.getElementById(`section${currentStep}`);
+    const requiredFields = currentSection.querySelectorAll('[required]');
+
+    // Validate only the current section's required fields
+    requiredFields.forEach(field => {
+        if (!validateField(field)) {
+            isValid = false;
+        }
+    });
+
+    // Special validation for termsAccept (only in Step 2)
+    if (currentStep === 2) {
+        const termsAccept = document.getElementById('termsAccept');
+        if (termsAccept && !termsAccept.checked) {
+            showError(termsAccept, document.getElementById('termsAcceptError'), 'Please accept the terms and conditions');
+            isValid = false;
+        } else {
+            // Clear error if checked
+            const errorElement = document.getElementById('termsAcceptError');
+            if (errorElement) errorElement.classList.remove('show');
+        }
+    }
+
+    // Special validation for finalConsent (only in Step 7)
+    if (currentStep === 7) {
+        const finalConsent = document.getElementById('finalConsent');
+        if (finalConsent && !finalConsent.checked) {
+            showError(finalConsent, document.getElementById('finalConsentError'), 'Please provide final consent');
+            isValid = false;
+        } else {
+            const errorElement = document.getElementById('finalConsentError');
+            if (errorElement) errorElement.classList.remove('show');
+        }
+    }
+
+    // Additional validation for emergencyRelationship (Step 7)
+    if (currentStep === 7) {
+        const emergencyRelationship = document.getElementById('emergencyRelationship');
+        const emergencyOther = document.getElementById('emergencyOther');
+        if (emergencyRelationship && emergencyRelationship.value === 'Other' && !emergencyOther.value.trim()) {
+            showError(emergencyOther, document.getElementById('emergencyOtherError'), 'Please specify the relationship');
+            isValid = false;
+        }
+    }
+
+    // Step 1 specific validation
+    if (currentStep === 1) {
+        return validatePromoCode();
+    }
+
+    // Check if package is selected for steps beyond 1
+    if (currentStep > 1 && !selectedPackage) {
+        alert('Please apply a valid promo code first.');
+        return false;
+    }
+
+    return isValid;
+}
+
+    function validateField(field) {
+        const value = field.value.trim();
+        const fieldName = field.name;
+        let isValid = true;
+        let errorMessage = '';
+        
+        if (field.hasAttribute('required') && !value) {
+            isValid = false;
+            errorMessage = 'This field is required';
+        }
+        
+        if (value) {
+            if (field.type === 'tel' && !validationPatterns.phone.test(value)) {
+                isValid = false;
+                errorMessage = 'Please enter a valid 10-digit mobile number';
+            } else if (field.type === 'email' && !validationPatterns.email.test(value)) {
+                isValid = false;
+                errorMessage = 'Please enter a valid email address';
+            }
+        }
+        
+        const errorElement = document.getElementById(`${fieldName}Error`);
+        if (errorElement) {
+            if (isValid) {
+                field.classList.remove('error');
+                errorElement.classList.remove('show');
+            } else {
+                showError(field, errorElement, errorMessage);
+            }
+        }
+        return isValid;
+    }
+
+    function showError(field, errorElement, message) {
+        field.classList.add('error');
+        errorElement.textContent = message;
+        errorElement.classList.add('show');
+    }
+
+    function generateChildrenForms() {
+        const container = document.getElementById('childrenContainer');
+        const childrenCount = selectedPackage ? selectedPackage.childrenCount : 1;
+        container.innerHTML = '';
+        for (let i = 1; i <= childrenCount; i++) {
+            const childHTML = `
+                <div class="child-section">
+                    <h3 class="child-section-title">Child ${i} Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label required" for="child${i}Name">Child's Full Name</label>
+                            <input type="text" id="child${i}Name" name="child${i}Name" class="form-input" required>
+                            <div class="error-message" id="child${i}NameError">Child's name is required</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="child${i}Dob">Date of Birth</label>
+                            <input type="date" id="child${i}Dob" name="child${i}Dob" class="form-input" required>
+                            <div class="error-message" id="child${i}DobError">Date of birth is required</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label required" for="child${i}Gender">Gender</label>
+                            <select id="child${i}Gender" name="child${i}Gender" class="form-select" required>
+                                <option value="">Select gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="error-message" id="child${i}GenderError">Please select gender</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="child${i}Siblings">Number of children in family</label>
+                            <select id="child${i}Siblings" name="child${i}Siblings" class="form-select" required>
+                                <option value="">Select number</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5+">5+</option>
+                            </select>
+                            <div class="error-message" id="child${i}SiblingsError">Please select number of children</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label required">Has your child trained in martial arts before?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="child${i}MartialArtsYes" name="child${i}MartialArts" value="yes" class="radio-input" required>
+                                <label for="child${i}MartialArtsYes" class="radio-label">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="child${i}MartialArtsNo" name="child${i}MartialArts" value="no" class="radio-input" required>
+                                <label for="child${i}MartialArtsNo" class="radio-label">No</label>
+                            </div>
+                        </div>
+                        <div class="error-message" id="child${i}MartialArtsError">Please select martial arts experience</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label required">Does your child have any medical conditions?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="child${i}MedicalYes" name="child${i}Medical" value="yes" class="radio-input" required>
+                                <label for="child${i}MedicalYes" class="radio-label">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="child${i}MedicalNo" name="child${i}Medical" value="no" class="radio-input" required>
+                                <label for="child${i}MedicalNo" class="radio-label">No</label>
+                            </div>
+                        </div>
+                        <div class="error-message" id="child${i}MedicalError">Please select medical condition status</div>
+                    </div>
+                    <div class="form-group" id="child${i}MedicalDetailsGroup" style="display: none;">
+                        <label class="form-label" for="child${i}MedicalDetails">Please specify medical conditions</label>
+                        <textarea id="child${i}MedicalDetails" name="child${i}MedicalDetails" class="form-textarea" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="child${i}Medications">Current Medications (if any)</label>
+                        <textarea id="child${i}Medications" name="child${i}Medications" class="form-textarea" rows="2"></textarea>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += childHTML;
+            setTimeout(() => {
+                const medicalYes = document.getElementById(`child${i}MedicalYes`);
+                const medicalNo = document.getElementById(`child${i}MedicalNo`);
+                const medicalDetailsGroup = document.getElementById(`child${i}MedicalDetailsGroup`);
+                if (medicalYes) medicalYes.addEventListener('change', function() {
+                    if (this.checked) medicalDetailsGroup.style.display = 'block';
+                });
+                if (medicalNo) medicalNo.addEventListener('change', function() {
+                    if (this.checked) medicalDetailsGroup.style.display = 'none';
+                });
+            }, 0);
+        }
+    }
+
+    function generateExperienceForms() {
+        const container = document.getElementById('experienceContainer');
+        const childrenCount = selectedPackage ? selectedPackage.childrenCount : 1;
+        container.innerHTML = '';
+        for (let i = 1; i <= childrenCount; i++) {
+            const hasExperience = document.querySelector(`input[name="child${i}MartialArts"]:checked`);
+            if (hasExperience && hasExperience.value === 'yes') {
+                const childrenLabel = selectedPackage.childrenCount === 1 ? "Child's" : `Child ${i}`;
+                const experienceHTML = `
+                    <div class="child-section">
+                        <h3 class="child-section-title">Martial Arts Experience - ${childrenLabel}</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="child${i}Duration">Duration of Training</label>
+                                <select id="child${i}Duration" name="child${i}Duration" class="form-select">
+                                    <option value="">Select duration</option>
+                                    <option value="Less than 6 months">Less than 6 months</option>
+                                    <option value="6 months - 1 year">6 months - 1 year</option>
+                                    <option value="1-2 years">1-2 years</option>
+                                    <option value="2-3 years">2-3 years</option>
+                                    <option value="3+ years">3+ years</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="child${i}Style">Style Practiced</label>
+                                <select id="child${i}Style" name="child${i}Style" class="form-select">
+                                    <option value="">Select style</option>
+                                    <option value="Karate">Karate</option>
+                                    <option value="Taekwondo">Taekwondo</option>
+                                    <option value="Judo">Judo</option>
+                                    <option value="Kung Fu">Kung Fu</option>
+                                    <option value="Mixed Martial Arts">Mixed Martial Arts</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="child${i}Dojo">Previous Dojo or Instructor Name</label>
+                            <input type="text" id="child${i}Dojo" name="child${i}Dojo" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="child${i}Belt">Current Belt Rank</label>
+                            <select id="child${i}Belt" name="child${i}Belt" class="form-select">
+                                <option value="">Select belt rank</option>
+                                <option value="White Belt">White Belt</option>
+                                <option value="Yellow Belt">Yellow Belt</option>
+                                <option value="Orange Belt">Orange Belt</option>
+                                <option value="Green Belt">Green Belt</option>
+                                <option value="Blue Belt">Blue Belt</option>
+                                <option value="Brown Belt">Brown Belt</option>
+                                <option value="Black Belt">Black Belt</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="child${i}Competition">Competition Experience or Recent Injuries</label>
+                            <textarea id="child${i}Competition" name="child${i}Competition" class="form-textarea" rows="3"></textarea>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += experienceHTML;
+            }
+        }
+    }
+
+    function toggleOtherField(selectId, groupId) {
+        const select = document.getElementById(selectId);
+        const group = document.getElementById(groupId);
+        if (select && group) {
+            group.style.display = select.value === 'Other' ? 'block' : 'none';
+        }
+    }
+
+    function showSection(step) {
+        document.getElementById(`section${step}`).classList.add('active');
+        if (step === 6) {
+            ['friendName', 'friendChildName', 'friendContact', 'referrer'].forEach(field => {
+                const el = document.getElementById(field);
+                if (el) el.setAttribute('required', '');
+            });
+            document.getElementById('referred')?.setAttribute('required', '');
+        }
+    }
+
+    function hideSection(step) {
+        document.getElementById(`section${step}`).classList.remove('active');
+        if (step === 6) {
+            ['friendName', 'friendChildName', 'friendContact', 'referrer', 'referred'].forEach(field => {
+                const el = document.getElementById(field);
+                if (el) el.removeAttribute('required');
+            });
+        }
+    }
+
+    function updateProgressBar() {
+        const progress = (currentStep / maxSteps) * 100;
+        document.getElementById('progressFill').style.width = `${progress}%`;
+    }
+
+    function updateStepIndicator() {
+        const stepNames = [
+            'Welcome &amp; Promo Code',
+            'Package Confirmation',
+            'Family &amp; Guardian Details',
+            'Children Information',
+            'Martial Arts Experience',
+            'Referral Information',
+            'Emergency Contact &amp; Final Details'
+        ];
+        document.getElementById('stepIndicator').innerHTML = 
+            `Step ${currentStep} of ${maxSteps}: ${stepNames[currentStep - 1]}`;
+    }
+
+    function updateButtons() {
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        prevBtn.style.display = currentStep > 1 ? 'inline-flex' : 'none';
+        if (currentStep === maxSteps) {
+            nextBtn.style.display = 'none';
+            submitBtn.style.display = 'inline-flex';
+        } else {
+            nextBtn.style.display = 'inline-flex';
+            submitBtn.style.display = 'none';
+        }
+    }
+
+    // Finalized submitForm - No newRow.getRow() reference
+    async function submitForm(event) {
+    event.preventDefault();
+    if (!validateCurrentStep()) return;
+    document.getElementById('loading').classList.add('show');
+    document.querySelector('.form-card').style.display = 'none';
+    const rawFormData = new FormData(document.getElementById('admissionForm'));
+    const rawData = Object.fromEntries(rawFormData.entries());
+    const childrenCount = selectedPackage ? selectedPackage.childrenCount : 1;
+
+    const data = {
+        promoCode: rawData.promoCode || '',
+        packageName: selectedPackage ? selectedPackage.name : '',
+        totalPrice: selectedPackage ? selectedPackage.price : '',
+        primaryGuardianName: rawData.guardianName || '',
+        primaryGuardianRelationship: rawData.guardianOther || rawData.guardianRelationship || '',
+        primaryGuardianContact: rawData.guardianContact || '',
+        primaryGuardianEmail: rawData.guardianEmail || '',
+        primaryGuardianWhatsApp: rawData.guardianWhatsapp || '',
+        secondaryGuardianName: rawData.guardianName2 || '',
+        secondaryGuardianRelationship: rawData.guardianOther2 || rawData.guardianRelationship2 || '',
+        secondaryGuardianContact: rawData.guardianContact2 || '',
+        child1Name: rawData.child1Name || '',
+        child1DOB: rawData.child1Dob || '',
+        child1Gender: rawData.child1Gender || '',
+        child1Siblings: rawData.child1Siblings || '',
+        child1MartialArtsExperience: rawData.child1MartialArts || '',
+        child1MedicalConditions: rawData.child1Medical || '',
+        child1CurrentMedications: rawData.child1Medications || '',
+        child2Name: childrenCount >= 2 ? rawData.child2Name || '' : '',
+        child2DOB: childrenCount >= 2 ? rawData.child2Dob || '' : '',
+        child2Gender: childrenCount >= 2 ? rawData.child2Gender || '' : '',
+        child2MartialArtsExperience: childrenCount >= 2 ? rawData.child2MartialArts || '' : '',
+        child3Name: childrenCount >= 3 ? rawData.child3Name || '' : '',
+        child3DOB: childrenCount >= 3 ? rawData.child3Dob || '' : '',
+        child3Gender: childrenCount >= 3 ? rawData.child3Gender || '' : '',
+        child3MartialArtsExperience: childrenCount >= 3 ? rawData.child3MartialArts || '' : '',
+        martialArtsDuration: rawData.child1Duration || rawData.child2Duration || rawData.child3Duration || '',
+        previousDojo: rawData.child1Dojo || rawData.child2Dojo || rawData.child3Dojo || '',
+        martialArtsStyle: rawData.child1Style || rawData.child2Style || rawData.child3Style || '',
+        currentBeltRank: rawData.child1Belt || rawData.child2Belt || rawData.child3Belt || '',
+        competitionExperience: rawData.child1Competition || rawData.child2Competition || rawData.child3Competition || '',
+        friendName: rawData.friendName || '',
+        friendChildName: rawData.friendChildName || '',
+        friendContact: rawData.friendContact || '',
+        referrerStatus: rawData.referrerStatus || '',
+        emergencyContactName: rawData.emergencyName || '',
+        emergencyContactRelationship: rawData.emergencyOther || rawData.emergencyRelationship || '',
+        emergencyContactPhone: rawData.emergencyPhone || '',
+        specialRequirements: rawData.specialRequirements || '',
+        termsAccepted: (rawData.termsAccept === 'on' && rawData.finalConsent === 'on') ? 'Yes' : 'No'
+    };
+
+    try {
+        const response = await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(data)
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        const resultText = await response.text();
+        let parsedResult = { status: 'success', message: 'Submitted!' };
+        try { parsedResult = JSON.parse(resultText); } catch {}
+        document.getElementById('loading').classList.remove('show');
+        if (parsedResult.status === 'success') {
+            document.getElementById('successMessage').innerHTML = `<h3>Application Submitted Successfully!</h3><p>${parsedResult.message || 'Thank you! We\'ll contact you soon.'}</p>`;
+            document.getElementById('successMessage').classList.add('show');
+            console.log('Success! Data sent:', data);
+        } else {
+            throw new Error(parsedResult.message || 'Unknown error');
+        }
+    } catch (error) {
+        console.error('Submission Error:', error);
+        document.getElementById('loading').classList.remove('show');
+        alert(`Submission failed: ${error.message}\nCheck console (F12) for details. Try again or contact support.`);
+        document.querySelector('.form-card').style.display = 'block';
+    }
+}
+
+    // Initialize the form when the page loads
+    updateButtons();
+</script>
+</body>
+</html>
