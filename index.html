@@ -711,7 +711,8 @@
         align-items: center;
         justify-content: center;
         z-index: 1000; /* High but below header */
-        transition: opacity 0.3s ease;
+        transition: opacity 0.15s ease;
+        overlay.style.opacity = '0';
         opacity: 0;
       }
       .loading-overlay.show {
@@ -2066,7 +2067,7 @@
           //Complete loading and hide overlay
           clearInterval(loadingInterval);
           loadingText.textContent = `Completed 100%`;
-          setTimeout(() => overlay.classList.add("hidden"), 450);
+          setTimeout(() => overlay.classList.add("hidden"), 150);
 
           // Navigate to Thank You page
           currentStep = 8;
@@ -2110,6 +2111,7 @@
     </script>
   </body>
 </html>
+
 
 
 
