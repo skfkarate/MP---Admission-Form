@@ -767,85 +767,70 @@
         display: none !important;
       }
 
-      /* ----- Section 8: Celebration Styling ----- */
+      /* ----- Section 8: Premium Thank-You Styling ----- */
 #section8 {
-  background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 25%, #1a472a 50%, #0f2818 100%);
+  background: #1a1a1a; /* deep charcoal */
+  border: 1px solid rgba(212,175,55,0.8); /* soft gold */
   border-radius: var(--radius-lg);
-  border: 2px solid var(--metallic-gold);
-  box-shadow: 0 8px 32px rgba(212,175,55,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+  padding: var(--space-32) var(--space-24);
+  text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-#section8::before {
+#section8::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.1), transparent);
-  animation: celebrationShine 3s infinite;
-}
-
-@keyframes celebrationShine {
-  0%   { left: -100%; }
-  100% { left: 100%; }
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle at center, rgba(212,175,55,0.15), transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 #section8 .section-title {
-  color: var(--metallic-gold);
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  text-shadow: 0 0 20px rgba(212,175,55,0.6);
-  animation: titleGlow 2s ease-in-out infinite alternate;
-  text-align: center;
-  margin-bottom: var(--space-20);
-}
-
-@keyframes titleGlow {
-  0%   { text-shadow: 0 0 20px rgba(212,175,55,0.6); }
-  100% { text-shadow: 0 0 30px rgba(212,175,55,0.9), 0 0 40px rgba(212,175,55,0.5); }
+  font-family: 'Cinzel', serif; /* elegant serif */
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #d4af37; /* metallic gold */
+  letter-spacing: 0.05em;
+  margin: 0 0 var(--space-16);
 }
 
 #section8 .section-subtitle {
-  color: var(--status-success);
-  font-size: var(--font-size-xl);
-  text-align: center;
+  font-size: var(--font-size-lg);
+  color: #e8e8e8; /* bright silver */
   margin-bottom: var(--space-24);
-  font-weight: var(--font-weight-medium);
 }
 
 #thankYouContent {
-  background: rgba(34,197,94,0.1);
-  border: 2px solid var(--status-success);
+  display: inline-block;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,55,0.5);
   border-radius: var(--radius-md);
-  padding: var(--space-24);
-  margin: var(--space-20) 0;
-  color: var(--text-primary);
-  box-shadow: 0 4px 16px rgba(34,197,94,0.2);
-}
-
-#thankYouContent .note {
-  font-size: var(--font-size-lg);
+  padding: var(--space-24) var(--space-32);
+  color: #c0c0c0; /* metallic silver text */
+  font-family: 'Roboto', sans-serif;
+  font-size: var(--font-size-base);
   line-height: 1.6;
-  margin: var(--space-12) 0;
+  max-width: 600px;
 }
 
 #thankYouContent big {
-  color: var(--metallic-gold);
-  font-weight: var(--font-weight-bold);
-}
-
-#thankYouContent b {
-  color: var(--status-success);
+  display: block;
+  font-size: var(--font-size-xl);
+  color: #d4af37;
+  margin-bottom: var(--space-12);
 }
 
 #thankYouContent strong {
-  color: var(--metallic-bright-silver);
-  background: rgba(192,192,192,0.1);
+  color: #ffffff;
+  background: rgba(212,175,55,0.2);
   padding: 2px 6px;
   border-radius: 4px;
 }
+
     </style>
   </head>
   <body>
@@ -2170,6 +2155,7 @@
     </script>
   </body>
 </html>
+
 
 
 
