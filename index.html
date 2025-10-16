@@ -1438,7 +1438,7 @@
 
       // REPLACE WITH YOUR DEPLOYED WEB APP URL
       const WEBHOOK_URL =
-        "https://script.google.com/macros/s/AKfycbxJjrE-1v__Rhse2O081tHjtog7X9BL4qgmhG2Y-5Jhlg0NfFzNvzCG3-VSr7WbLoAg/exec";
+        "https://script.google.com/macros/s/AKfycbxnZ7wuEqaKtjkrSZgu4Fn-x2ctr03FkYeojezSb4j8C00LDQZdXvAPGaBblPGZfFpK/exec";
 
       document.addEventListener("DOMContentLoaded", () => {
         const form = document.getElementById("admissionForm");
@@ -2132,7 +2132,7 @@
             ? children.join(", ")
             : "your child";
           document.getElementById("thankYouContent").innerHTML = `
-            <p class="note">🥋 <big>Congratulations, <b>${data.primaryGuardianName}!</b></big> Your enrollment for <big><b>${childList}</b></big> has been successfully submitted to <big>Sports Karate-do Fitness & Self Defence Association</big>.</p>
+            <p class="note"><br> <big>Congratulations, <b>${data.primaryGuardianName}!</b></big> Your enrollment for <big><b>${childList}</b></big> has been successfully submitted to <big>Sports Karate-do Fitness & Self Defence Association</big>.</p>
             <br>
             <p class="note">Please check your email at <strong>${data.primaryGuardianEmail}</strong> for payment details and further instructions.</p>
             <p class="note"><b>Note:</b> If you do not see the email in your inbox, please check your spam or junk folder.</p>
@@ -2155,6 +2155,7 @@
     </script>
   </body>
 </html>
+
 
 
 
