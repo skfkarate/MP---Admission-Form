@@ -855,6 +855,59 @@
         padding: 2px 6px;
         border-radius: 4px;
       }
+
+      /* Themed Spam/Junk notice */
+.spam-notice {
+  background: rgba(var(--karate-bg-primary-rgb), 0.6);
+  backdrop-filter: blur(2px);
+  border: 1px solid var(--metallic-gold);
+  border-radius: var(--radius-base);
+  padding: var(--space-16);
+  margin-top: var(--space-20);
+  color: var(--metallic-gold);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+  box-shadow: var(--shadow-gold-glow);
+}
+
+.spam-notice .icon {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  color: var(--metallic-gold);
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.3));
+}
+
+.spam-notice .content { line-height: 1.5; }
+
+.spam-notice .title {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-6) 0;
+  font-size: var(--font-size-base);
+}
+
+.spam-notice .hint {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.spam-notice .chip {
+  display: inline-block;
+  background: rgba(var(--metallic-silver-rgb), 0.12);
+  border: 1px solid rgba(var(--metallic-silver-rgb), 0.35);
+  color: var(--metallic-bright-silver);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  margin-left: 6px;
+}
+
+@media (max-width: 480px) {
+  .spam-notice { padding: var(--space-12); }
+  .spam-notice .title { font-size: var(--font-size-sm); }
+}
+
     </style>
   </head>
   <body>
@@ -2369,9 +2422,23 @@
             <br>
             <p class="note">Please check your email at <strong>${data.primaryGuardianEmail}</strong> for payment details and further instructions.</p>
             <!-- Spam Warning Section -->
-            <div style="background:#3e1f00; border:2px solid #ffcc00; border-radius:8px; color:#ffcc00; padding:12px 16px; font-weight:bold; margin-top:20px; text-align:center;">
-              ⚠️ If you don’t see this email in your inbox, please check your Spam or Junk folder and mark it as “Not Spam” to ensure smooth communication.
-            </div>
+            <div class="spam-notice" role="note" aria-live="polite">
+  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+    <path fill="currentColor" d="M11 7h2v6h-2V7zm0 8h2v2h-2v-2zm1-13C6.48 2 2 6.48 2 12s4.48 10 10 10
+     10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8
+     8-8 8 3.59 8 8-3.59 8-8 8z"/>
+  </svg>
+  <div class="content">
+    <p class="title">Check Spam or Junk folder</p>
+    <p class="hint">
+      If the email isn’t in your inbox, open Spam or Junk and mark it
+      <span class="chip">Not spam</span> to keep updates flowing smoothly.
+    </p>
+    <p class="hint">
+      In Gmail, also check the Promotions tab and drag the email to Primary to whitelist future messages.
+    </p>
+  </div>
+</div>
             <br>
             <p class="note"><i> - Team SKF</i></p>
           `;
@@ -2391,4 +2458,5 @@
     </script>
   </body>
 </html>
+
 
