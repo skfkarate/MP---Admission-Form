@@ -1687,14 +1687,14 @@
           const savings = isDiwali ? 3000 : 2500; // Base 2500 + 500 Diwali
           detailsHTML += `
       <div class="package-detail"><span class="icon">🎯</span> Registration Fee: <span class="price-slashed">₹2,500</span> → <span class="price-highlight">₹${regFee}</span></div>
-      <div class="package-detail"><span class="icon">📅</span> Monthly Training Fee: `;
+      <div class="package-detail"><span class="icon">📅</span> Monthly Training Fee:`;
           if (isDiwali) {
-            detailsHTML += `<span class="price-slashed">₹2,500</span> <span class="price-now-gold">₹2,000</span> <span class="note-gold">(Diwali Offer)</span>`;
+            detailsHTML += `<span class="price-slashed">₹2,500</span><span class="price-now-gold">₹2,000</span><span class="note-gold">(Diwali Offer)</span>`;
           } else {
             detailsHTML += `<span class="price-highlight">₹${monthlyFee}</span>`;
           }
           detailsHTML += `</div>
-      <div class="package-detail"><span class="icon">🛡️</span> Self-Defence Workshop: <span class="savings-highlight">Complimentary (1 × ₹1,500 = ₹1,500)</span></div>
+      <div class="package-detail"><span class="icon">🛡️</span> Self-Defence Workshop: <span class="savings-highlight">Complimentary <br>(1 × ₹1,500 = ₹1,500)</span></div>
       <div class="package-detail"><span class="icon">💵</span> Total Investment: <span class="price-highlight">₹${finalPrice}</span></div>
       <div class="package-detail"><span class="icon">💸</span> You Save: <span class="savings-highlight">₹${savings}!</span></div>`;
           if (isDiwali) {
@@ -2465,6 +2465,7 @@
     </script>
   </body>
 </html>
+
 
 
 
