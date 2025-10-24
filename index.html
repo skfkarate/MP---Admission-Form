@@ -374,6 +374,10 @@
         margin-bottom: var(--space-6);
       }
 
+      label[for="promoCode"].form-label.required::after {
+        content: "" !important;
+      }
+
       .form-label.required::after {
         content: " *";
         color: var(--color-error);
@@ -461,14 +465,31 @@
       }
 
       .price-highlight {
-  font-weight: var(--font-weight-bold);
-  color: #ffffff; /* was red */
-}
+        font-weight: var(--font-weight-bold);
+        color: #ffffff; /* was red */
+      }
 
-.savings-highlight {
-  font-weight: var(--font-weight-bold);
-  color: var(--status-success);
-}
+      .savings-highlight {
+        font-weight: var(--font-weight-bold);
+        color: var(--status-success);
+      }
+
+      /* Diwali pricing visuals */
+      .price-slashed {
+        text-decoration: line-through;
+        color: var(--text-muted);
+        margin: 0 8px;
+      }
+      .price-now-gold {
+        color: var(--metallic-gold);
+        font-weight: 800;
+        text-shadow: 0 0 6px rgba(212, 175, 55, 0.35);
+      }
+      .note-gold {
+        color: var(--metallic-gold);
+        font-weight: 600;
+        margin-left: 6px;
+      }
 
       .form-row {
         display: grid;
@@ -768,69 +789,72 @@
       }
 
       /* ----- Section 8: Premium Thank-You Styling ----- */
-#section8 {
-  background: #1a1a1a; /* deep charcoal */
-  border: 1px solid rgba(212,175,55,0.8); /* soft gold */
-  border-radius: var(--radius-lg);
-  padding: var(--space-32) var(--space-24);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
+      #section8 {
+        background: #1a1a1a; /* deep charcoal */
+        border: 1px solid rgba(212, 175, 55, 0.8); /* soft gold */
+        border-radius: var(--radius-lg);
+        padding: var(--space-32) var(--space-24);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
 
-#section8::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120%;
-  height: 120%;
-  background: radial-gradient(circle at center, rgba(212,175,55,0.15), transparent 70%);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
+      #section8::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120%;
+        height: 120%;
+        background: radial-gradient(
+          circle at center,
+          rgba(212, 175, 55, 0.15),
+          transparent 70%
+        );
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
 
-#section8 .section-title {
-  font-family: 'Cinzel', serif; /* elegant serif */
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: #d4af37; /* metallic gold */
-  letter-spacing: 0.05em;
-  margin: 0 0 var(--space-16);
-}
+      #section8 .section-title {
+        font-family: "Cinzel", serif; /* elegant serif */
+        font-size: clamp(2rem, 5vw, 3rem);
+        color: #d4af37; /* metallic gold */
+        letter-spacing: 0.05em;
+        margin: 0 0 var(--space-16);
+      }
 
-#section8 .section-subtitle {
-  font-size: var(--font-size-lg);
-  color: #e8e8e8; /* bright silver */
-  margin-bottom: var(--space-24);
-}
+      #section8 .section-subtitle {
+        font-size: var(--font-size-lg);
+        color: #e8e8e8; /* bright silver */
+        margin-bottom: var(--space-24);
+      }
 
-#thankYouContent {
-  display: inline-block;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(212,175,55,0.5);
-  border-radius: var(--radius-md);
-  padding: var(--space-24) var(--space-32);
-  color: #c0c0c0; /* metallic silver text */
-  font-family: 'Roboto', sans-serif;
-  font-size: var(--font-size-base);
-  line-height: 1.6;
-  max-width: 600px;
-}
+      #thankYouContent {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(212, 175, 55, 0.5);
+        border-radius: var(--radius-md);
+        padding: var(--space-24) var(--space-32);
+        color: #c0c0c0; /* metallic silver text */
+        font-family: "Roboto", sans-serif;
+        font-size: var(--font-size-base);
+        line-height: 1.6;
+        max-width: 600px;
+      }
 
-#thankYouContent big {
-  display: block;
-  font-size: var(--font-size-xl);
-  color: #d4af37;
-  margin-bottom: var(--space-12);
-}
+      #thankYouContent big {
+        display: block;
+        font-size: var(--font-size-xl);
+        color: #d4af37;
+        margin-bottom: var(--space-12);
+      }
 
-#thankYouContent strong {
-  color: #ffffff;
-  background: rgba(212,175,55,0.2);
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-
+      #thankYouContent strong {
+        color: #ffffff;
+        background: rgba(212, 175, 55, 0.2);
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
     </style>
   </head>
   <body>
@@ -869,19 +893,26 @@
 
             <div class="promo-code-section">
               <div class="form-group">
-                <label class="form-label required" for="promoCode"
-                  >Promo Code</label
-                >
+                <label class="form-label" for="promoCode ">Promo Code</label>
                 <input
                   type="text"
                   id="promoCode"
                   name="promoCode"
                   class="form-input"
                   placeholder="Enter promo code"
-                  required
                 />
                 <div class="error-message" id="promoCodeError">
                   Please enter a valid promo code
+                </div>
+                <div
+                  id="promoHelpNote"
+                  style="
+                    margin-top: 6px;
+                    font-size: 13px;
+                    color: var(--text-muted);
+                  "
+                >
+                  Have a promo code? Enter it here — or simply continue.
                 </div>
               </div>
             </div>
@@ -1427,18 +1458,49 @@
           childrenCount: 1,
           icon: "🤝",
         },
+        SKFDIWALI1: {
+          name: "Diwali Offer — Single",
+          childrenCount: 1,
+          registrationFee: 1500,
+          monthlyTraining: 2000,
+          icon: "🎉",
+        },
+        SKFDIWALI2: {
+          name: "Diwali Offer — Duo",
+          childrenCount: 2,
+          registrationFee: 1500,
+          monthlyTraining: 2000,
+          familyDiscount: 1000,
+          icon: "🎉",
+        },
+        SKFDIWALI3: {
+          name: "Diwali Offer — Trio",
+          childrenCount: 3,
+          registrationFee: 1500,
+          monthlyTraining: 2000,
+          familyDiscount: 2001,
+          icon: "🎉",
+        },
+        STANDARD: {
+          name: "Standard Program",
+          price: 5000,
+          registrationFee: 2500,
+          monthlyTraining: 2500,
+          childrenCount: 1,
+          icon: "🎯",
+        },
       };
 
       // Validation patterns
       const validationPatterns = {
         phone: /^[6-9]\d{9}$/,
-        email: /^[^@]+@[^@]+\.[^@]+$/,
-        promoCode: /^SKF[A-Z]+$/,
+        email: /.+@.+\..+/,
+        promoCode: /^SKF[A-Z0-9]+$/, // allow digits for SKFDIWALI1/2/3
       };
 
       // REPLACE WITH YOUR DEPLOYED WEB APP URL
       const WEBHOOK_URL =
-        "https://script.google.com/macros/s/AKfycbzm9xp0U9AA4Hp7G_ADLRKbLnE4PRUpxNKcyzvBJAGgVUD_Ng1iuIZiZ9D6Xfb-okkr/exec";
+        "https://script.google.com/macros/s/AKfycbzxs5ixXE4dlbnA502G4ImzubaOd2Ol3VLPYSwIiapWqZTc8gobbqOQwuUK1IBEvn_K/exec";
 
       document.addEventListener("DOMContentLoaded", () => {
         const form = document.getElementById("admissionForm");
@@ -1454,6 +1516,14 @@
         document
           .getElementById("promoCode")
           .addEventListener("input", validatePromoCode);
+
+        document.getElementById("promoCode").addEventListener("input", () => {
+          const helpLine = document.getElementById("promoHelpNote");
+          if (helpLine) {
+            helpLine.style.display = "none"; // hides the help line when user starts typing
+          }
+        });
+
         document
           .getElementById("guardianRelationship")
           .addEventListener("change", function () {
@@ -1475,71 +1545,234 @@
       }
 
       function validatePromoCode() {
-        const promoCode = document
-          .getElementById("promoCode")
-          .value.toUpperCase();
         const promoInput = document.getElementById("promoCode");
         const errorElement = document.getElementById("promoCodeError");
+        const details = document.getElementById("packageDetails");
+        const raw = (promoInput.value || "").trim();
+        const promoCode = raw.toUpperCase();
 
-        if (promoCode && validationPatterns.promoCode.test(promoCode)) {
-          if (packages[promoCode]) {
-            selectedPackage = packages[promoCode];
-            promoInput.classList.remove("error");
-            errorElement.classList.remove("show");
-            updatePackageDetails(promoCode);
-            return true;
-          } else {
-            showError(promoInput, errorElement, "Invalid promo code");
-            return false;
-          }
-        } else if (promoCode) {
+        const help = document.getElementById("promoHelpNote");
+        if (help)
+          help.textContent =
+            "Have a promo code? Enter it here — or simply continue.";
+
+        // Normalize promo code for Diwali codes
+        const { baseKey, isDiwali, children } = normalizePromoCode(promoCode);
+
+        // 1. If promo code is empty, show standard package
+        if (!promoCode) {
+          selectedPackage = packages["STANDARD"];
+          updatePackageDetails("STANDARD");
+          promoInput.classList.remove("error");
+          errorElement.classList.remove("show");
+          return true;
+        }
+
+        // 2. Validate promo code format
+        if (!validationPatterns.promoCode.test(promoCode)) {
           showError(promoInput, errorElement, "Promo code must start with SKF");
           return false;
         }
+
+        // 3. Check if promo code is valid (including Diwali mapped codes)
+        if (packages[baseKey]) {
+          selectedPackage = packages[baseKey];
+          updatePackageDetails(promoCode);
+          promoInput.classList.remove("error");
+          errorElement.classList.remove("show");
+          return true;
+        }
+
+        // 4. Promo code is formatted but unknown
+        showError(promoInput, errorElement, "Invalid promo code");
         return false;
       }
 
+      // Your normalizePromoCode function to map Diwali codes
+      function normalizePromoCode(promo) {
+        const p = (promo || "").toUpperCase().trim();
+        if (p === "SKFDIWALI1")
+          return { baseKey: "SKFEARLYBIRD", isDiwali: true, children: 1 };
+        if (p === "SKFDIWALI2")
+          return { baseKey: "SKFDUO", isDiwali: true, children: 2 };
+        if (p === "SKFDIWALI3")
+          return { baseKey: "SKFTRIO", isDiwali: true, children: 3 };
+        return { baseKey: p, isDiwali: false, children: undefined };
+      }
+
       function updatePackageDetails(promoCode) {
-        const pkg = packages[promoCode];
         const detailsContainer = document.getElementById("packageDetails");
-        let detailsHTML = `
-              <div class="package-title">${
-                pkg.icon
-              } ${pkg.name.toUpperCase()} SELECTED</div>
-              <div class="package-details">
-          `;
-        if (promoCode === "SKFEARLYBIRD") {
-          detailsHTML += `
-                  <div class="package-detail"><span class="icon">🎯</span> Registration Fee: ₹2,500 → <span class="price-highlight">₹${pkg.registrationFee}</span></div>
-                  <div class="package-detail"><span class="icon">📅</span> Monthly Training: <span class="price-highlight">₹${pkg.monthlyTraining}</span></div>
-                  <div class="package-detail"><span class="icon">🛡️</span> Self-Defence Workshop: <span class="savings-highlight">FREE (₹1,500 value)</span></div>
-                  <div class="package-detail"><span class="icon">💵</span> Total Investment: <span class="price-highlight">₹${pkg.price}</span></div>
-                  <div class="package-detail"><span class="icon">💸</span> You Save <span class="savings-highlight">₹${pkg.savings}!</span></div>
-              `;
-        } else if (promoCode === "SKFDUO") {
-          detailsHTML += `
-                  <div class="package-detail"><span class="icon">🧮</span> 2 × Early Bird Programs = ₹8,000</div>
-                  <div class="package-detail"><span class="icon">🎁</span> Family Discount = <span class="savings-highlight">-₹${pkg.familyDiscount}</span></div>
-                  <div class="package-detail"><span class="icon">💵</span> Final Total: <span class="price-highlight">₹${pkg.price} (₹${pkg.pricePerChild} per child)</span></div>
-                  <div class="package-detail"><span class="icon">💸</span> Total Savings: <span class="savings-highlight">₹${pkg.savings} overall!</span></div>
-              `;
-        } else if (promoCode === "SKFTRIO") {
-          detailsHTML += `
-                  <div class="package-detail"><span class="icon">🧮</span> 3 × Early Bird Programs = ₹12,000</div>
-                  <div class="package-detail"><span class="icon">🎁</span> Family Discount = <span class="savings-highlight">-₹${pkg.familyDiscount}</span></div>
-                  <div class="package-detail"><span class="icon">💵</span> Final Total: <span class="price-highlight">₹${pkg.price} (₹${pkg.pricePerChild} per child)</span></div>
-                  <div class="package-detail"><span class="icon">💸</span> Total Savings: <span class="savings-highlight">₹${pkg.savings} overall!</span></div>
-              `;
-        } else if (promoCode === "SKFREFERRAL") {
-          detailsHTML += `
-                  <div class="package-detail"><span class="icon">🎯</span> Both you and your referred friend enjoy benefits:</div>
-                  <div class="package-detail"><span class="icon">💵</span> ₹4,000 each → <span class="price-highlight">₹${pkg.price} after 5% discount</span></div>
-                  <div class="package-detail"><span class="icon">🎁</span> Referrer Credit = <span class="savings-highlight">₹${pkg.referrerCredit}</span></div>
-                  <div class="package-detail"><span class="icon">💸</span> Total Benefit = <span class="savings-highlight">₹${pkg.totalBenefit}!</span></div>
-              `;
+        const { baseKey, isDiwali, children } = normalizePromoCode(promoCode);
+        const pkg = packages[baseKey];
+        if (!pkg) return;
+
+        const c = pkg.childrenCount || children || 1;
+        const regFee = pkg.registrationFee || 1500;
+        const monthlyFee = pkg.monthlyTraining || 2500;
+        let finalPrice = pkg.price || 0;
+        let pricePerChild =
+          pkg.pricePerChild || (finalPrice && Math.round(finalPrice / c));
+
+        // Adjust for Diwali discount (₹500 per child on monthly fee)
+        if (isDiwali && finalPrice) {
+          const delta = 500 * c;
+          finalPrice = Math.max(0, finalPrice - delta);
+          pricePerChild = Math.round(finalPrice / c);
         }
-        detailsHTML += "</div>";
+
+        const packageTitle = `${
+          pkg.icon
+        } ${pkg.name.toUpperCase()} PROGRAM SELECTED`;
+
+        let detailsHTML = `
+    <div class="package-title">${packageTitle}</div>
+    <div class="package-details">
+  `;
+
+        // Early Bird Program (Single Child)
+        if (baseKey === "SKFEARLYBIRD") {
+          const savings = isDiwali ? 3000 : 2500; // Base 2500 + 500 Diwali
+          detailsHTML += `
+      <div class="package-detail"><span class="icon">🎯</span> Registration Fee: <span class="price-slashed">₹2,500</span> → <span class="price-highlight">₹${regFee}</span></div>
+      <div class="package-detail"><span class="icon">📅</span> Monthly Training Fee: `;
+          if (isDiwali) {
+            detailsHTML += `<span class="price-slashed">₹2,500</span> <span class="price-now-gold">₹2,000</span> <span class="note-gold">(Diwali Offer)</span>`;
+          } else {
+            detailsHTML += `<span class="price-highlight">₹${monthlyFee}</span>`;
+          }
+          detailsHTML += `</div>
+      <div class="package-detail"><span class="icon">🛡️</span> Self-Defence Workshop: <span class="savings-highlight">Complimentary (1 × ₹1,500 = ₹1,500)</span></div>
+      <div class="package-detail"><span class="icon">💵</span> Total Investment: <span class="price-highlight">₹${finalPrice}</span></div>
+      <div class="package-detail"><span class="icon">💸</span> You Save: <span class="savings-highlight">₹${savings}!</span></div>`;
+          if (isDiwali) {
+            detailsHTML += `
+      <div class="package-detail"><span class="icon">🎁</span> Monthly Lock-in: <span class="savings-highlight">Pay ₹2,000 instead of ₹2,500 every month — ₹500 savings locked permanently!</span></div>`;
+          }
+        }
+
+        // Family Duo Program (Two Children)
+        else if (baseKey === "SKFDUO") {
+          // Keep original published numbers
+          const publishedTotal = 7000; // investment stays 7000
+          const publishedSavings = 6000; // savings stays 6000
+
+          // Registration and monthly lines
+          const regPerChild = regFee; // 1500 already shown with scratch
+          const monthlyPerChild = isDiwali ? 2000 : pkg.monthlyTraining || 2500;
+
+          // Family discount display rule
+          const effectiveFamilyDiscount = isDiwali
+            ? 0
+            : pkg.familyDiscount || 1000;
+
+          // Pricing presentation only; per-child shown from existing config if present
+          finalPrice = publishedTotal;
+          pricePerChild = pkg.pricePerChild || Math.round(publishedTotal / 2);
+
+          detailsHTML += `
+    <div class="package-detail"><span class="icon">🎯</span> Registration Fee (Child 1): <span class="price-slashed">₹2,500</span> → <span class="price-highlight">₹${regPerChild}</span></div>
+    <div class="package-detail"><span class="icon">🎯</span> Registration Fee (Child 2): <span class="price-slashed">₹2,500</span> → <span class="price-highlight">₹${regPerChild}</span></div>
+    <div class="package-detail"><span class="icon">📅</span> Monthly Training Fee (per child): ${
+      isDiwali
+        ? `<span class="price-slashed">₹2,500</span> <span class="price-now-gold">₹2,000</span> <span class="note-gold">(Diwali Offer)</span>`
+        : `<span class="price-highlight">₹${monthlyPerChild}</span>`
+    }</div>
+    <div class="package-detail"><span class="icon">🛡️</span> Self-Defence Workshop: <span class="savings-highlight">Complimentary (2 × ₹1,500 = ₹3,000)</span></div>
+    ${
+      effectiveFamilyDiscount > 0
+        ? `
+      <div class="package-detail"><span class="icon">🎁</span> Family Discount: <span class="savings-highlight">-₹${effectiveFamilyDiscount}</span></div>
+    `
+        : ``
+    }
+    <div class="package-detail"><span class="icon">💵</span> Final Total: <span class="price-highlight">₹${publishedTotal.toLocaleString(
+      "en-IN"
+    )}</span> <span style="color: var(--text-secondary);">(₹${pricePerChild.toLocaleString(
+            "en-IN"
+          )} per child)</span></div>
+    <div class="package-detail"><span class="icon">💸</span> Total Savings: <span class="savings-highlight">₹${publishedSavings.toLocaleString(
+      "en-IN"
+    )} overall!</span></div>
+  `;
+          if (isDiwali) {
+            detailsHTML += `
+    <div class="package-detail"><span class="icon">🎁</span> Monthly Lock-in: <span class="savings-highlight">Each child pays ₹2,000 instead of ₹2,500 every month — ₹1,000 family savings locked permanently!</span></div>`;
+          }
+        }
+
+        // Family Trio Program (Three Children)
+        else if (baseKey === "SKFTRIO") {
+          // Keep original published numbers
+          const publishedTotal = 9999; // investment stays 9999
+          const publishedSavings = 9501; // savings stays 9501
+
+          // Registration and monthly lines
+          const regPerChild = regFee; // 1500
+          const monthlyPerChild = isDiwali ? 2000 : pkg.monthlyTraining || 2500;
+
+          // Family discount presentation rule for Diwali3
+          const effectiveFamilyDiscount = isDiwali
+            ? 501
+            : pkg.familyDiscount || 2001;
+
+          // Pricing presentation only; per-child from existing config if present
+          finalPrice = publishedTotal;
+          pricePerChild = pkg.pricePerChild || Math.round(publishedTotal / 3);
+
+          detailsHTML += `
+    <div class="package-detail"><span class="icon">🎯</span> Registration Fee (Child 1): <span class="price-slashed">₹2,500</span> → <span class="price-highlight">₹${regPerChild}</span></div>
+    <div class="package-detail"><span class="icon">🎯</span> Registration Fee (Child 2): <span class="price-slashed">₹2,500</span> → <span class="price-highlight">₹${regPerChild}</span></div>
+    <div class="package-detail"><span class="icon">🎯</span> Registration Fee (Child 3): <span class="price-slashed">₹2,500</span> → <span class="price-highlight">₹${regPerChild}</span></div>
+    <div class="package-detail"><span class="icon">📅</span> Monthly Training Fee (per child): ${
+      isDiwali
+        ? `<span class="price-slashed">₹2,500</span> <span class="price-now-gold">₹2,000</span> <span class="note-gold">(Diwali Offer)</span>`
+        : `<span class="price-highlight">₹${monthlyPerChild}</span>`
+    }</div>
+    <div class="package-detail"><span class="icon">🛡️</span> Self-Defence Workshop: <span class="savings-highlight">Complimentary (3 × ₹1,500 = ₹4,500)</span></div>
+    <div class="package-detail"><span class="icon">🎁</span> Family Discount: <span class="savings-highlight">-₹${effectiveFamilyDiscount}</span></div>
+    <div class="package-detail"><span class="icon">💵</span> Final Total: <span class="price-highlight">₹${publishedTotal.toLocaleString(
+      "en-IN"
+    )}</span> <span style="color: var(--text-secondary);">(₹${pricePerChild.toLocaleString(
+            "en-IN"
+          )} per child)</span></div>
+    <div class="package-detail"><span class="icon">💸</span> Total Savings: <span class="savings-highlight">₹${publishedSavings.toLocaleString(
+      "en-IN"
+    )} overall!</span></div>
+  `;
+          if (isDiwali) {
+            detailsHTML += `
+    <div class="package-detail"><span class="icon">🎁</span> Monthly Lock-in: <span class="savings-highlight">Each child pays ₹2,000 instead of ₹2,500 every month — ₹1,500 family savings locked permanently!</span></div>`;
+          }
+        }
+
+        // Referral Program
+        else if (baseKey === "SKFREFERRAL") {
+          detailsHTML += `
+      <div class="package-detail"><span class="icon">🎯</span> Registration Fee: <span class="price-slashed">₹2,500</span> → <span class="price-highlight">₹${regFee}</span></div>
+      <div class="package-detail"><span class="icon">📅</span> Monthly Training Fee: <span class="price-highlight">₹2,500</span></div>
+      <div class="package-detail"><span class="icon">💵</span> Total per child: <span class="price-slashed">₹4,000</span> → <span class="price-highlight">₹${
+        pkg.price || 3800
+      }</span> <span style="color: var(--text-secondary);">(5% discount)</span></div>
+      <div class="package-detail"><span class="icon">🎁</span> Referrer receives credit: <span class="savings-highlight">₹${
+        pkg.referrerCredit || 500
+      }</span> <span style="color: var(--text-secondary);">(for future monthly training fees)</span></div>
+      <div class="package-detail"><span class="icon">💸</span> Total Referrer Benefit: <span class="savings-highlight">₹${
+        pkg.totalBenefit || 700
+      }!</span></div>
+      <div class="package-detail"><span class="icon">🤝</span> Both you and your friend enjoy benefits when joining together!</div>`;
+        }
+
+        // Standard Program
+        else if (baseKey === "STANDARD") {
+          detailsHTML += `
+      <div class="package-detail"><span class="icon">🎯</span> Registration Fee: <span class="price-highlight">₹2,500</span></div>
+      <div class="package-detail"><span class="icon">📅</span> Monthly Training Fee: <span class="price-highlight">₹2,500</span></div>
+      <div class="package-detail"><span class="icon">💵</span> Total Investment: <span class="price-highlight">₹5,000</span></div>`;
+        }
+
+        detailsHTML += `</div>`;
         detailsContainer.innerHTML = detailsHTML;
+        selectedPackage = { ...pkg, price: finalPrice, pricePerChild };
       }
 
       function nextStep() {
@@ -2135,14 +2368,17 @@
             <p class="note"><br> <big>Congratulations, <b>${data.primaryGuardianName}!</b></big> Your enrollment for <big><b>${childList}</b></big> has been successfully submitted to <big>Sports Karate-do Fitness & Self Defence Association</big>.</p>
             <br>
             <p class="note">Please check your email at <strong>${data.primaryGuardianEmail}</strong> for payment details and further instructions.</p>
-            <p class="note"><b>Note:</b> If you do not see the email in your inbox, please check your spam or junk folder.</p>
+            <!-- Spam Warning Section -->
+            <div style="background:#3e1f00; border:2px solid #ffcc00; border-radius:8px; color:#ffcc00; padding:12px 16px; font-weight:bold; margin-top:20px; text-align:center;">
+              ⚠️ If you don’t see this email in your inbox, please check your Spam or Junk folder and mark it as “Not Spam” to ensure smooth communication.
+            </div>
             <br>
             <p class="note"><i> - Team SKF</i></p>
           `;
 
           // Show payment button with UPI link
           const payBtn = document.getElementById("payBtn");
-          // payBtn.style.display = "block"; 
+          // payBtn.style.display = "block";
           payBtn.onclick = () => window.open(parsedResult.upiLink, "_blank");
         } catch (error) {
           clearInterval(loadingInterval);
@@ -2155,24 +2391,3 @@
     </script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
