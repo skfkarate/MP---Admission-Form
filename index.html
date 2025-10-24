@@ -2417,31 +2417,38 @@
           const childList = children.length
             ? children.join(", ")
             : "your child";
-          document.getElementById("thankYouContent").innerHTML = `
-            <p class="note"><br> <big>Congratulations, <b>${data.primaryGuardianName}!</b></big> Your enrollment for <big><b>${childList}</b></big> has been successfully submitted to <big>Sports Karate-do Fitness & Self Defence Association</big>.</p>
-            <br>
-            <p class="note">Please check your email at <strong>${data.primaryGuardianEmail}</strong> for payment details and further instructions.</p>
-            <!-- Spam Warning Section -->
-            <div class="spam-notice" role="note" aria-live="polite">
-  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-    <path fill="currentColor" d="M11 7h2v6h-2V7zm0 8h2v2h-2v-2zm1-13C6.48 2 2 6.48 2 12s4.48 10 10 10
-     10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8
-     8-8 8 3.59 8 8-3.59 8-8 8z"/>
-  </svg>
-  <div class="content">
-    <p class="title">Check Spam or Junk folder</p>
-    <p class="hint">
-      If the email isn’t in your inbox, open Spam or Junk and mark it
-      <span class="chip">Not spam</span> to keep updates flowing smoothly.
-    </p>
-    <p class="hint">
-      In Gmail, also check the Promotions tab and drag the email to Primary to whitelist future messages.
-    </p>
+          document.getElementById('thankYouContent').innerHTML = `
+  <p class="note">
+    <big>Congratulations, <b>${data.primaryGuardianName}</b>!</big>
+    Your enrollment for <big><b>${childList}</b></big> has been submitted to
+    <b>Sports Karate-do Fitness Self Defence Association</b>.
+  </p>
+  <br />
+  <p class="note">
+    Please check your email at <strong>${data.primaryGuardianEmail}</strong> for payment details and next steps.
+  </p>
+
+  <div class="spam-notice" role="note" aria-live="polite">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M11 7h2v6h-2V7zm0 8h2v2h-2v-2zm1-13C6.48 2 2 6.48 2 12s4.48 10 10 10
+       10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8
+       8-8 8 3.59 8 8-3.59 8-8 8z"/>
+    </svg>
+    <div class="content">
+      <p class="title">Check Spam or Junk folder</p>
+      <p class="hint">
+        If the email isn’t in your inbox, open Spam or Junk and mark it
+        <span class="chip">Not spam</span> to keep updates flowing smoothly.
+      </p>
+      <p class="hint">
+        In Gmail, also check the Promotions tab and drag the email to Primary to whitelist future messages.
+      </p>
+    </div>
   </div>
-</div>
-            <br>
-            <p class="note"><i> - Team SKF</i></p>
-          `;
+
+  <br />
+  <p class="note"><i>– Team SKF</i></p>
+`;
 
           // Show payment button with UPI link
           const payBtn = document.getElementById("payBtn");
@@ -2458,5 +2465,6 @@
     </script>
   </body>
 </html>
+
 
 
